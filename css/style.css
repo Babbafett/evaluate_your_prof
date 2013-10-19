@@ -8,6 +8,7 @@ body{
         }
 div.header{
         position:absolute;
+        top: 7%;
         bottom: 80%;
         text-align: center;
         left:15%;
@@ -17,11 +18,9 @@ div.header{
 
 table{
         text-align:center;
-                margin: 0 auto;
-  margin-left: auto;
-  margin-right: auto;
-
-        background:grey;
+        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
         padding: 5px;
         width: 100%;
 
@@ -30,7 +29,7 @@ table{
           position: absolute;
           top:20%;
           left: 15%;
-          height:80%;
+          height:75%;
           width: 10%;
           border: none;
           background:orange;
@@ -43,7 +42,7 @@ table{
           position: absolute;
           top:20%;
           right:15%;
-          height:80%;
+          height:75%;
           width: 10%;
           border: none;
           background:red;
@@ -55,7 +54,7 @@ table{
                 position: absolute;
                 top: 20%;
                 left:25%;
-                height:80%;
+                height:75%;
                 width: 50%;
                 background:green;
 
@@ -92,19 +91,18 @@ table{
 
 
                 }
+        div.footer{
+              text-align:center;
+              background:brown;
+              position:absolute;
+              top:95%;
+              bottom:0px;
+              left: 15%;
+              right: 15%;
+        }
         li{
          margin: 0 auto;
          margin-left: auto;
          margin-right: auto;
 
         }
-footer{
-        text-align:center;
-        background:red;
-        width:100%;
-        position:absolute;
-        bottom:0px;
-        left: 0px;
-        background:purple;
-        }
-
