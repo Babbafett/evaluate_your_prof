@@ -71,6 +71,7 @@ ul#nav {
 ul#nav li{
 	float: left;
 	height: 100%;
+	width: 14%;
 	padding-left: 22px;
 	padding-right: 22px;
 }
