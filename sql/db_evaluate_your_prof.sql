@@ -44,10 +44,11 @@ create table if not exists t_prof_course
 
 create table if not exists t_TAN
 (
-	t_id varchar(10) not null,
+	t_id int not null auto_increment,
 	t_course int not null,
 	t_prof int not null,
-	primary key(t_id),
+	t_tan varchar(10) not null,
+	primary key(t_id, t_tan),
 	foreign key(t_course) references t_course(c_id) on update cascade on delete cascade,
 	foreign key(t_prof) references t_prof(p_id) on update cascade on delete cascade
 );
@@ -58,7 +59,7 @@ create table if not exists t_evaluation
 	e_course int,
 	e_prof int,
 	e_overall enum('1','2','3','4','5','6','7','8','9','10'),
-	e_conentual enum('1','2','3','4','5','6','7','8','9','10'),
+	e_contentual enum('1','2','3','4','5','6','7','8','9','10'),
 	e_eloquence enum('1','2','3','4','5','6','7','8','9','10'),
 	e_motivation enum('1','2','3','4','5','6','7','8','9','10'),
 	e_test_requirement enum('1','2','3','4','5','6','7','8','9','10'),
