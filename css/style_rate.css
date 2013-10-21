@@ -38,18 +38,6 @@ div.wrapper-main {
 	border-radius: 15px;
 }
 
-div.wrapper-footer{
-	overflow: hidden;
-	position: relative;
-	height:5%;
-	min-width:1160px;
-	width: 70%;
-	margin: 0 auto;
-	border: 1px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
-
 div.header {
 	position: absolute;
 	overflow: hidden;
