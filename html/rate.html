@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="../css/style_home.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_rate.css"/>
 		<title>New Web Project</title>
 	</head>
 	<body>
@@ -37,20 +37,123 @@
 			<div class="wrapper-content-center">
 				<div class="content">
 
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
-					content-center
+					<img src="..\evaluate_your_prof\images\Bild1.jpg">
+					<h1>Dozentenname</h1>					
+					<h2>Vorlesungen</h2>	
+								
+					<h3>&emsp; Gesamteindruck
+						<input type="range" min="1" max="10" value="5" step="1" onchange="showValue(this.value)" />
+						<span id="Gesamteindruck">5</span>
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Gesamteindruck").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Inhaltlich
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />	
+						<span id="Inhaltlich">5</span>					
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Inhaltlich").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Kompetenz
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />		
+						<span id="Kompetenz">5</span>				
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Kompetenz").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Eloquenz
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />		
+						<span id="Eloquenz">5</span>				
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Eloquenz").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Motivation (Dozent)
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />		
+						<span id="Motivation (Dozent)">5</span>				
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Motivation (Dozent)").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Eigene Motivation (vorher)
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />	
+						<span id="Eigene Motivation (vorher)">5</span>					
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Eigene Motivation (vorher)").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Eigene Motivation (nachher)
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />	
+						<span id="Eigene Motivation (nachher)">5</span>					
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Eigene Motivation (nachher)").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Klausuranforderungen
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />		
+						<span id="Klausuranforderungen">5</span>				
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Klausuranforderungen").innerHTML=newValue;
+						}
+						</script>
+					</h3>					
+					<h3>&emsp; Medienverwendung
+						<input type="range" min="1" max="10" value="5" step="1" 
+						onchange="showValue(this.value)" />	
+						<span id="Medienverwendung">5</span>					
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("Medienverwendung").innerHTML=newValue;
+						}
+						</script>
+					</h3>
+					<h3>&emsp; Hotness-Faktor
+						<input type="radio" name="Hotness" value="Hot"> Hot or <input type="radio" name="Hotness" value="Not"> Not 
+					</h3>
+					<h3>&emsp; Das fand ich gut</h3>
+						<input type="text" name="Positiv" size="100" value=""> 
+					<h3>&emsp; Das hat mir nicht gefallen</h3>
+						<input type="text" name="Negativ" size="100" value=""> 
+					<h3>&emsp; Kommentar</h3>
+						<input type="text" name="Kommentar" size="100" value=""> 
+					<h3>&emsp; TAN</h3>
+						<input type="text" name="TAN" size="100" value="">
+						<br>
+					<button type="button">Submit!</button>
+						
+					
 
 				</div>
 			</div>
