@@ -16,7 +16,7 @@ div.wrapper-head {
 	overflow: hidden;
 	position: relative;
 	min-height: 160px;
-	height:15%;
+	height: 15%;
 	min-width: 1160px;
 	width: 70%;
 	top: 50px;
@@ -64,7 +64,7 @@ img#logo {
 	height: 150px;
 }
 
-nav{
+nav {
 	position: absolute;
 	overflow: hidden;
 	margin-top: 50px;
@@ -105,6 +105,10 @@ ul#nav li a:link, a:visited {
 	text-decoration: none;
 }
 
+ul#nav li a:hover, a:active {
+	color: rgb(58,132,49);
+}
+
 ul#footer {
 	list-style-type: none;
 	padding: 0;
@@ -129,6 +133,10 @@ ul#footer li a:link, a:visited {
 	padding: 0 9px;
 	text-align: center;
 	text-decoration: none;
+}
+
+ul#footer li a:hover, a:active {
+	color: rgb(123,185,41);
 }
 
 div.wrapper-content-center {
