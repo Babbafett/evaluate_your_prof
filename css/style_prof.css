@@ -51,7 +51,7 @@ div.wrapper-footer {
 	margin-bottom: 50px;
 }
 
-div.header {
+header {
 	position: absolute;
 	overflow: hidden;
 	min-width: 400px;
@@ -64,7 +64,7 @@ img#logo {
 	height: 150px;
 }
 
-div.navigation {
+nav {
 	position: absolute;
 	overflow: hidden;
 	margin-top: 50px;
@@ -168,7 +168,7 @@ div.content-right {
 	background-attachment: fixed;
 }
 
-div.footer {
+footer {
 	overflow: hidden;
 	height: 30px;
 	background-color: rgb(58,132,49);
