@@ -35,12 +35,12 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-
+					<form action="">
 					<img id = "profile_picture" alt="profile_picture"/>
 					<h1>Dozentenname</h1>					
 					<h2>Vorlesungen</h2>	
 								
-					<h3>&emsp; Gesamteindruck
+					<h3>&emsp; Gesamteindruck</h3>
 						<input type="range" min="1" max="10" value="5" step="1" onchange="showValue(this.value)" />
 						<span id="Gesamteindruck">5</span>
 						<script type="text/javascript">
@@ -49,8 +49,8 @@
 							document.getElementById("Gesamteindruck").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Inhaltlich
+					<br>	
+					<h3>&emsp; Inhaltlich</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />	
 						<span id="Inhaltlich">5</span>					
@@ -59,9 +59,9 @@
 						{
 							document.getElementById("Inhaltlich").innerHTML=newValue;
 						}
-						</script>
-					</h3>
-					<h3>&emsp; Kompetenz
+						</script>	
+					<br>				
+					<h3>&emsp; Kompetenz</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />		
 						<span id="Kompetenz">5</span>				
@@ -71,8 +71,8 @@
 							document.getElementById("Kompetenz").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Eloquenz
+					<br>	
+					<h3>&emsp; Eloquenz</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />		
 						<span id="Eloquenz">5</span>				
@@ -82,8 +82,8 @@
 							document.getElementById("Eloquenz").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Motivation (Dozent)
+					<br>	
+					<h3>&emsp; Motivation (Dozent)</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />		
 						<span id="Motivation (Dozent)">5</span>				
@@ -93,8 +93,8 @@
 							document.getElementById("Motivation (Dozent)").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Eigene Motivation (vorher)
+					<br>	
+					<h3>&emsp; Eigene Motivation (vorher)</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />	
 						<span id="Eigene Motivation (vorher)">5</span>					
@@ -104,8 +104,8 @@
 							document.getElementById("Eigene Motivation (vorher)").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Eigene Motivation (nachher)
+					<br>	
+					<h3>&emsp; Eigene Motivation (nachher)</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />	
 						<span id="Eigene Motivation (nachher)">5</span>					
@@ -115,8 +115,8 @@
 							document.getElementById("Eigene Motivation (nachher)").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Klausuranforderungen
+				
+					<h3>&emsp; Klausuranforderungen</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />		
 						<span id="Klausuranforderungen">5</span>				
@@ -126,8 +126,8 @@
 							document.getElementById("Klausuranforderungen").innerHTML=newValue;
 						}
 						</script>
-					</h3>					
-					<h3>&emsp; Medienverwendung
+									
+					<h3>&emsp; Medienverwendung</h3>
 						<input type="range" min="1" max="10" value="5" step="1" 
 						onchange="showValue(this.value)" />	
 						<span id="Medienverwendung">5</span>					
@@ -137,21 +137,21 @@
 							document.getElementById("Medienverwendung").innerHTML=newValue;
 						}
 						</script>
-					</h3>
-					<h3>&emsp; Hotness-Faktor
+					
+					<h3>&emsp; Hotness-Faktor</h3>
 						<input type="radio" name="Hotness" value="Hot"> Hot or <input type="radio" name="Hotness" value="Not"> Not 
-					</h3>
+					
 					<h3>&emsp; Das fand ich gut</h3>
-						<input type="text" name="Positiv" size="100" value=""> 
+						<textarea name="Positiv" rows="3" maxlength="150" cols="60"></textarea>
 					<h3>&emsp; Das hat mir nicht gefallen</h3>
-						<input type="text" name="Negativ" size="100" value=""> 
+						<textarea name="Negativ" rows="3" maxlength="150" cols="60"></textarea>
 					<h3>&emsp; Kommentar</h3>
-						<input type="text" name="Kommentar" size="100" value=""> 
+						<textarea name="Kommentar" rows="3" maxlength="150" cols="60"></textarea> 
 					<h3>&emsp; TAN</h3>
-						<input type="text" name="TAN" size="100" value="">
+						<input type="text" name="TAN" size="12" value="">
 						<br>
-					<button type="button">Submit!</button>
-						
+					<button type="submit">Submit!</button>
+					</form>	
 					
 
 				</div>
