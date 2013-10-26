@@ -69,9 +69,9 @@ create table if not exists t_evaluation
 	e_media_usage enum('1','2','3','4','5','6','7','8','9','10'),
 	e_soft_skills enum('1','2','3','4','5','6','7','8','9','10'),
 	e_hot enum('1','2'),
-	e_comment_positive varchar(150),
-	e_comment_negative varchar(150),
-	e_comment varchar(150),
+	e_comment_positive varchar(300),
+	e_comment_negative varchar(300),
+	e_comment varchar(300),
 	primary key(e_id),
 	foreign key(e_course) references t_course(c_id) on update cascade on delete cascade,
 	foreign key(e_prof) references t_prof(p_id) on update cascade on delete cascade
