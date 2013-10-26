@@ -15,7 +15,7 @@ if (isset($_POST['generate_tan'])) {
 	}
 	mysqli_free_result($result);
 
-	$prof = explode(" ", $_POST);
+	$prof = explode(" ", $_POST[prof]);
 	$forname = $prof[0];
 	$lastname = $prof[1];
 
