@@ -5,8 +5,8 @@ if (isset($_POST['insert_rate'])) {
 	if ($connect -> connect_errno)
 		echo "Failed to connect to MySQL: " . $connect -> connect_error;
 }
-$course = $_POST[course];
-$prof = explode(" ", $_POST[prof]);
+$course = $_POST['course'];
+$prof = explode(" ", $_POST['prof']);
 $forname = $prof[0];
 $lastname = $prof[1];
 
@@ -64,11 +64,12 @@ while ($row = $result -> fetch_array(MYSQLI_NUM)) {
 	}
 }
 
-if (in_array($_POST[TAN], $tan)) {
-	if (!($query = $connect -> prepare("INSERT into t_evaluation(e_course, e_prof, e_overall, e_contentual,e_competence, e_eloquence, e_motivation_prof, e_motivation_before, e_motivation_after, e_test_requirements, e_media_usage, e_soft_skills, e_hot, e_comment_positive, e_comment_negative, e_comment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))) {
+if (in_array($_POST['TAN'], $tan)) {
+	if (!($query = $connect -> prepare("Insert into t_evaluation(e_course,e_prof,e_overall,e_contentual,e_competence,e_eloquence,e_motivation_prof,e_motivation_before,e_motivation_after,e_test_requirement,e_media_usage,e_soft_skills,e_hot,e_comment_positive,e_comment_negative,e_comment) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
-	if (!($query -> bind_param("ssssssssssssssss", $course_id, $prof_id, $_POST[overall], $_POST[contentual], $_POST[competence], $_POST[eloquence], $_POST[motivation_prof], $_POST[motivation_before], $_POST[motivation_after], $_POST[test_requirements], $_POST[media_usage], $_POST[soft_skills], $_POST[hot], $_POST[comment_positive], $_POST[comment_negative], $_POST[comment]))) {
+	if (!($query -> bind_param("iissssssssssssss", $course_id, $prof_id, $_POST['overall'], $_POST['contentual'], $_POST['competence'], $_POST['eloquence'], $_POST['motivation_prof'], $_POST['motivation_before'], $_POST['motivation_after'], $_POST['test_requirements'], $_POST['media_usage'], $_POST['soft_skills'], $_POST['hot'], $_POST['comment_positive'], $_POST['comment_negative'], $_POST['comment']))) {
+		var_dump($query);
 		echo "Bind failed: " . $connect -> errno . $connect -> error;
 	}
 	if (!$query -> execute()) {
