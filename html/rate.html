@@ -35,169 +35,130 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<form action="">
-					<img id = "profile_picture" alt="profile_picture"/>
-					<h1>Dozentenname</h1>					
-					<h2>Vorlesungen</h2>	
-					<fieldset name="Kriterium">
-					<legend>Kriterien</legend>	
-					<label>
-					<h3>&emsp; Gesamteindruck</h3>
-						<input type="range" min="1" max="10" value="5" step="1" onchange="showValue(this.value)" />
-						<span id="Gesamteindruck">5</span>
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Gesamteindruck").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>
-					<label>	
-					<h3>&emsp; Inhaltlich</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />	
-						<span id="Inhaltlich">5</span>					
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Inhaltlich").innerHTML=newValue;
-						}
-						</script>
-					</label>		
-					<br>
-					<label>					
-					<h3>&emsp; Kompetenz</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />		
-						<span id="Kompetenz">5</span>				
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Kompetenz").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>
-					<label>		
-					<h3>&emsp; Eloquenz</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />		
-						<span id="Eloquenz">5</span>				
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Eloquenz").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>	
-					<label>	
-					<h3>&emsp; Motivation (Dozent)</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />		
-						<span id="Motivation (Dozent)">5</span>				
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Motivation (Dozent)").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>
-					<label>		
-					<h3>&emsp; Eigene Motivation (vorher)</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />	
-						<span id="Eigene Motivation (vorher)">5</span>					
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Eigene Motivation (vorher)").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>	
-					<label>	
-					<h3>&emsp; Eigene Motivation (nachher)</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />	
-						<span id="Eigene Motivation (nachher)">5</span>					
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Eigene Motivation (nachher)").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>
-					<label>	
-					<h3>&emsp; Klausuranforderungen</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />		
-						<span id="Klausuranforderungen">5</span>				
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Klausuranforderungen").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>	
-					<label>				
-					<h3>&emsp; Medienverwendung</h3>
-						<input type="range" min="1" max="10" value="5" step="1" 
-						onchange="showValue(this.value)" />	
-						<span id="Medienverwendung">5</span>					
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("Medienverwendung").innerHTML=newValue;
-						}
-						</script>
-					</label>	
-					<br>
-					</fieldset>
-					<br>
-					<fieldset name="Eigene Meinung">
-						<legend> Eigene Meinung</legend>
-					<label>
-					<h3>&emsp; Hotness-Faktor</h3>
-						<input type="radio" name="Hotness" value="Hot"> Hot or <input type="radio" name="Hotness" value="Not"> Not 
-					<br>
-					</label>
-					<label>
-					<h3>&emsp; Das fand ich gut</h3>
-						<textarea name="Positiv" rows="3" maxlength="150" cols="60" required>
-							
-						</textarea>
-					<br>
-					</label>
-					<label>
-					<h3>&emsp; Das hat mir nicht gefallen</h3>
-						<textarea name="Negativ" rows="3" maxlength="150" cols="60" required>
-							
-						</textarea>
+					<form action="insert_rate.php">
+						<img id = "profile_picture" alt="profile_picture"/>
+						<h1 name="prof_name">dOzentenname</h1>
+						<h2 name="courses">Vorlesungen</h2>
+						<fieldset id="criteria">
+							<legend id="criteria">
+								Kriterium
+							</legend>
+							<label class="position">
+								<p>
+									geSamteindruCk
+								</p>
+								<input type="range" name="overall"  class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Gesamteindruck">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									Inhaltlich
+								</p>
+								<input type="range" name="contentual" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Inhaltlich">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									komPetenz
+								</p>
+								<input type="range" name="competence" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Kompetenz">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									eloqueNz
+								</p>
+								<input type="range" name="eloquence" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Eloquenz">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									motIvation dOzent
+								</p>
+								<input type="range" name="motivation_prof" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Motivation (Dozent)">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									eigene motiVation vorHer
+								</p>
+								<input type="range" name="motivation_before" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Eigene Motivation (vorher)">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									eigene motIvation Nachher
+								</p>
+								<input type="range" name="motivation_after" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Eigene Motivation (nachher)">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									Klausuranforderungen
+								</p>
+								<input type="range" name="test_requirements" class="slider_width"  min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Klausuranforderungen">5</span> </label>
+							<br>
+							<label class="position">
+								<p>
+									medIenverwendung
+								</p>
+								<input type="range" name="media_usage" class="slider_width" min="0" max="10" value="5" step="1"
+								onchange="showValue(this.value)" />
+								<span id="Medienverwendung">5</span> </label>
+
+							<label id="hot">
+								<input type="radio" name="hot" value="Hot">
+								Hot or
+								<input type="radio" name="hot" value="Not">
+								Not </label>
+						</fieldset>
 						<br>
-					</label>
-					<label>
-					<h3>&emsp; Kommentar</h3>
-						<textarea required name="Kommentar" rows="3" maxlength="150" cols="60" >
-							
-						</textarea> 
-						<br>
-					</label>
-					<label>
-					<h3>&emsp; TAN</h3>
-						<input type="text" name="TAN" size="12" value="" required>
-						<br>
-					</label>
-					<label>
-					<button type="submit">Submit!</button>
-					</label>	
-					</fieldset>
-					</form>	
-					
+						<fieldset id="own_opinion">
+							<legend id="own_opinion">
+								eigene meiNung
+							</legend>
+
+							<label class="position2">
+								<p>
+									daS fand ich gut
+								</p> 								<textarea name="comment_positive" class="fixed" value="" rows="4" maxlength="300" cols="80" required ></textarea>
+								<br>
+							</label>
+							<label class="position2">
+								<p>
+									das Hat mir Nicht gefallen
+								</p> 								<textarea name="comment_negative" class="fixed" value="" rows="4" maxlength="300" cols="80" required></textarea>
+								<br>
+							</label>
+							<label class="position2">
+								<p>
+									Kommentar
+								</p> 								<textarea required name="comment" class="fixed" value=""rows="4" maxlength="300" cols="80" ></textarea>
+								<br>
+							</label>
+							<label class="position2">
+								<p>
+									taN
+								</p>
+								<input type="text" name="TAN" size="10" maxlength="10"value="" required>
+								<br>
+							</label>
+							<br>
+							<label>
+								<button type="submit">
+									Submit!
+								</button> </label>
+						</fieldset>
+					</form>
 
 				</div>
 			</div>
@@ -208,16 +169,14 @@
 				<ul id="footer">
 
 					<li>
-						<a href="home_seite.html"> Impressum</a>
+						<a href="about.html"> abOut</a>
 					</li>
 					<li>
-						<a href="Gesamtuebersicht.html"> Kontakt</a>
+						<a href="contact.html"> coNtact</a>
 					</li>
-
 				</ul>
 			</footer>
 		</div>
-
 
 	</body>
 </html>

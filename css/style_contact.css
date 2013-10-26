@@ -27,7 +27,8 @@ div.wrapper-head {
 div.wrapper-main {
 	overflow: hidden;
 	position: relative;
-	min-height: 2400px;
+	min-height: 600px;
+	height: 70%;
 	min-width: 1160px;
 	width: 70%;
 	top: 50px;
@@ -146,67 +147,11 @@ div.wrapper-content-center {
 }
 
 div.content {
+	float: left;
 	text-align: center;
 	margin: 0 0 -30px 0;
 	width: 100%;
 	height: 100%;
-	clear: both;
-	font-family: bad_font;
-	font-size: 40px;
-	letter-spacing: 0.1em;
-	line-height: 0em;
-}
-fieldset#criteria {
-
-	margin-left: 10%;
-	margin-right: 10%;
-}
-legend#criteria {
-	text-align: center;
-}
-fieldset#own_opinion {
-
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-top: 20px;
-}
-legend#own_opinion {
-	text-align: center;
-}
-input.slider_width {
-	width: 80%;
-}
-span {
-	font-family: Arial;
-}
-label.position {
-	display: block;
-	margin-bottom: 25px;
-}
-label.position2 {
-	display: block;
-	margin-bottom: 80px;
-}
-
-p {
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-label#hot {
-	font-size: 60px;
-	display: block;
-	margin-top: 60px;
-	margin-bottom: 20px;
-}
-textarea.fixed {
-	resize: none;
-}
-
-img#profile_picture {
-	float: right;
-}
-button {
-	text-align: center;
 }
 
 footer {
@@ -218,3 +163,4 @@ footer {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
+
