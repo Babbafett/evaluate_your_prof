@@ -3,7 +3,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background: url("../images/background.jpg") repeat-x;
+	background: url("../images/background/background.jpg") repeat-x;
 	background-color: rgb(123,185,41);
 }
 
