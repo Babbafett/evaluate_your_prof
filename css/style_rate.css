@@ -209,7 +209,7 @@ label#button {
 p {
 	margin-bottom: 20px;
 }
-label#hot {
+label#hot_not_input {
 	font-size: 30px;
 	display: block;
 	margin-top: 60px;
@@ -222,22 +222,38 @@ textarea.fixed {
 img#profile_picture {
 	float: right;
 }
-/*
-input[type=radio]{
-	width:80px;
-	height:80px;
+
+input#hot {
+	display: none;
 }
-input[type=radio]:before {
-	content: "";
-	display: block;
-	width: 80px;
-	height: 80px;
-	background: #ffffff;
+input#hot + label span {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	vertical-align: middle;
+	background: url("../images/buttons/button_hot.jpg") no-repeat;
+	cursor: pointer;
 }
-input[type=radio]:checked:before {
-	background: url("../images/buttons/button_submit.jpg");
-}​
-*/
+input#hot:checked + label span {
+	vertical-align: middle;
+	background: url("../images/buttons/button_hot_selected.jpg") no-repeat;
+}
+
+input#not {
+	display: none;
+}
+input#not + label span {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	vertical-align: middle;
+	background: url("../images/buttons/button_not.jpg") no-repeat;
+	cursor: pointer;
+}
+input#not:checked + label span {
+	vertical-align: middle;
+	background: url("../images/buttons/button_not_selected.jpg") no-repeat;
+}
 
 footer {
 	overflow: hidden;
