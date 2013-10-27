@@ -3,8 +3,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="../css/style_rate.css"/>
+		<script src="../javascript/jquery-2.0.3.min.js" type="text/javascript"></script>
 		<title>New Web Project</title>
+
 	</head>
+
 	<body>
 		<div class="wrapper-head">
 			<header>
@@ -43,86 +46,82 @@
 							<legend id="criteria">
 								Criteria
 							</legend>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									overall
 								</p>
-								<input type="range" name="overall"  class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Gesamteindruck">5</span> </label>
+								<input type="range" name="overall"  class="slider_width" min="1" max="7" value="4" step="1" id="overall_slide" />
+								<span id="overall">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									contentual
 								</p>
-								<input type="range" name="contentual" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Inhaltlich">5</span> </label>
+								<input type="range" name="contentual" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="contentual_slide" />
+								<span id="contentual">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									competence
 								</p>
-								<input type="range" name="competence" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Kompetenz">5</span> </label>
+								<input type="range" name="competence" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="competence_slide"/>
+								<span id="competence">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									eloquence
 								</p>
-								<input type="range" name="eloquence" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Eloquenz">5</span> </label>
+								<input type="range" name="eloquence" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="eloquence_slide"/>
+								<span id="eloquence">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									motivation prof
 								</p>
-								<input type="range" name="motivation_prof" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Motivation (Dozent)">5</span> </label>
+								<input type="range" name="motivation_prof" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="motivation_prof_slide"/>
+								<span id="motivation_prof">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									motivation before
 								</p>
-								<input type="range" name="motivation_before" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Eigene Motivation (vorher)">5</span> </label>
+								<input type="range" name="motivation_before" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="motivation_before_slide" />
+								<span id="motivation_before">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									motivation after
 								</p>
-								<input type="range" name="motivation_after" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Eigene Motivation (nachher)">5</span> </label>
+								<input type="range" name="motivation_after" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="motivation_after_slide" />
+								<span id="motivation_after">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									test requirements
 								</p>
-								<input type="range" name="test_requirements" class="slider_width"  min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Klausuranforderungen">5</span> </label>
+								<input type="range" name="test_requirements" class="slider_width"  min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="test_requirements_slide"/>
+								<span id="test_requirements">C</span> </label>
 							<br>
-							<label class="position">
+							<label class="position_criteria">
 								<p>
 									media usage
 								</p>
-								<input type="range" name="media_usage" class="slider_width" min="0" max="10" value="5" step="1"
-								onchange="showValue(this.value)" />
-								<span id="Medienverwendung">5</span> </label>
+								<input type="range" name="media_usage" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="media_usage_slide" />
+								<span id="media_usage">C</span> </label>
 
 							<label id="hot_not_input">
-								
 								<input type="radio" name="hot" value="Hot" id="hot">
-								<label for="hot"><span></span></label>
-								or
+								<label for="hot"><span></span></label> or
 								<input type="radio" name="hot" value="Not" id="not">
-								<label for="not"><span></span></label>
-							</label>
+								<label for="not"><span></span></label> </label>
 						</fieldset>
 						<br>
 						<fieldset id="own_opinion">
@@ -130,19 +129,19 @@
 								Own opinion
 							</legend>
 
-							<label class="position2">
+							<label class="position_own_opinion">
 								<p>
 									I like
 								</p> 								<textarea name="comment_positive" class="fixed" value="" rows="4" maxlength="300" cols="80" required ></textarea>
 								<br>
 							</label>
-							<label class="position2">
+							<label class="position_own_opinion">
 								<p>
 									I don't like
 								</p> 								<textarea name="comment_negative" class="fixed" value="" rows="4" maxlength="300" cols="80" required></textarea>
 								<br>
 							</label>
-							<label class="position2">
+							<label class="position_own_opinion">
 								<p>
 									comment
 								</p> 								<textarea required name="comment" class="fixed" value=""rows="4" maxlength="300" cols="80" ></textarea>
@@ -152,7 +151,7 @@
 								<p>
 									TAN
 								</p>
-								<input type="text" name="TAN" size="10" maxlength="10"value="" required>
+								<input type="text" name="TAN" size="10" maxlength="10"value="" required id="tan">
 								<br>
 							</label>
 							<br>
@@ -180,6 +179,6 @@
 				</ul>
 			</footer>
 		</div>
-
+		<script src="../javascript/changeSlide.js"></script>
 	</body>
 </html>
