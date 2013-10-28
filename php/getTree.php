@@ -1,5 +1,5 @@
 <?php
-$connect = new mysqli('localhost', 'root', '6g33SeYtEX', 'db_evaluate_your_prof');
+$connect = new mysqli('localhost', 'root', '', 'db_evaluate_your_prof');
 $stmt = $connect -> stmt_init();
 $query = "SELECT p_id, p_lastname, p_forname, p_title FROM t_prof";
 if ($connect -> connect_errno)

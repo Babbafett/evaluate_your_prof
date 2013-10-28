@@ -10,7 +10,7 @@ if (isset($_GET["course"]) == TRUE and isset($_GET["prof"]) == TRUE and isset($_
 			echo "<script type =text/javascript> alert('TAN was already used or wrong TAN, please use a right TAN'); </script>";
 		}
 	}
-	$connect = new mysqli('localhost', 'root', '6g33SeYtEX', 'db_evaluate_your_prof');
+	$connect = new mysqli('localhost', 'root', '', 'db_evaluate_your_prof');
 	if ($connect -> connect_errno) {
 		echo "Failed to connect to MySQL: " . $connect -> connect_error;
 	}
