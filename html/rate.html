@@ -25,7 +25,7 @@
 						<a href="prof.html"> Prof</a>
 					</li>
 					<li>
-						<a href="rate.html"> rate</a>
+						<a href="overview.html"> rate</a>
 					</li>
 					<li>
 						<a href="#"> admIN</a>
@@ -40,8 +40,9 @@
 				<div class="content">
 					<form action="../php/insert_rate.php" method="post">
 						<img id = "profile_picture" alt="profile_picture"/>
-						<h1 name="prof_name">Prof</h1>
-						<h2 name="courses">Course</h2>
+						<?php
+						require_once("../php/getRateInfo.php");
+						?>
 						<fieldset id="criteria">
 							<legend id="criteria">
 								Criteria
@@ -116,11 +117,19 @@
 								<input type="range" name="media_usage" class="slider_width" min="1" max="7" value="4" step="1"
 								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="media_usage_slide" />
 								<span id="media_usage">C</span> </label>
+							<br>
+							<label class="position_criteria">
+								<p>
+									soft skills
+								</p>
+								<input type="range" name="soft_skills" class="slider_width" min="1" max="7" value="4" step="1"
+								oninput="showValue(this.value, this.id)" onchange="showValue(this.value, this.id)" id="soft_skills_slide" />
+								<span id="soft_skills">C</span> </label>
 
 							<label id="hot_not_input">
-								<input type="radio" name="hot" value="Hot" id="hot">
+								<input type="radio" name="hot" value="1" id="hot">
 								<label for="hot"><span></span></label> or
-								<input type="radio" name="hot" value="Not" id="not">
+								<input type="radio" name="hot" value="2" id="not">
 								<label for="not"><span></span></label> </label>
 						</fieldset>
 						<br>
@@ -157,8 +166,9 @@
 							<br>
 
 						</fieldset>
+
 						<label>
-							<input type="image" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
+							<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
 						</label>
 					</form>
 

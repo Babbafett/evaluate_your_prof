@@ -6,6 +6,7 @@ use db_evaluate_your_prof;
 create table if not exists t_prof
 (
 	p_id int not null auto_increment,
+	p_title varchar(30),
 	p_lastname varchar(30),
 	p_forname varchar(30),
 	p_token varchar(2),

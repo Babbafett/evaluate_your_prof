@@ -43,6 +43,11 @@ $('#media_usage_slide').change(function() {
 	var grade = getGrade(value);
 	$('#media_usage').html(grade);
 });
+$('#soft_skills_slide').change(function() {
+	var value = this.value;
+	var grade = getGrade(value);
+	$('#soft_skills').html(grade);
+});
 
 function getGrade(value) {
 	var grade;
