@@ -160,8 +160,8 @@ div.content {
 	line-height: 0em;
 }
 
-h1,h2{
-	font-size:20px;
+h1, h2 {
+	font-size: 20px;
 	letter-spacing: 0;
 }
 
@@ -191,12 +191,12 @@ legend#own_opinion {
 }
 input.slider_width {
 	width: 75%;
-	margin-left:8%;
+	margin-left: 8%;
 }
 span {
-	display:inline-block;
-	min-width:44px;
-	text-align:center;
+	display: inline-block;
+	min-width: 44px;
+	text-align: center;
 	font-family: Arial;
 }
 label {
