@@ -66,68 +66,124 @@ if (isset($_GET["prof"])) {
 }
 
 function getGradeImage($value) {
-	if ($value == 1) {
-		echo '$("#content_left").attr("src","../images/grades/f_left.gif");';
+	if (($value <= 7) && ($value > 6.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/a+_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/f_right.gif");';
+		echo '$("#content_right_top").attr("src","../images/grades/a+_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 2) {
-		echo '$("#content_left").attr("src","../images/grades/e_left.gif");';
+		echo '$("#content_left_bottom").attr("src","../images/grades/a+_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/e_right.gif");';
+		echo '$("#content_right_bottom").attr("src","../images/grades/a+_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 3) {
-		echo '$("#content_left").attr("src","../images/grades/d_left.gif");';
+	} elseif (($value <= 6.5) && ($value > 5.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/a_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/d_right.gif");';
+		echo '$("#content_right_top").attr("src","../images/grades/a_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 4) {
-		echo '$("#content_left").attr("src","../images/grades/c_left.gif");';
+		echo '$("#content_left_bottom").attr("src","../images/grades/a_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/c_right.gif");';
+		echo '$("#content_right_bottom").attr("src","../images/grades/a_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 5) {
-		echo '$("#content_left").attr("src","../images/grades/b_left.gif");';
+	} elseif (($value <= 5.5) && ($value > 4.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/b_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/b_right.gif");';
+		echo '$("#content_right_top").attr("src","../images/grades/b_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 6) {
-		echo '$("#content_left").attr("src","../images/grades/a_left.gif");';
+		echo '$("#content_left_bottom").attr("src","../images/grades/b_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/a_right.gif");';
+		echo '$("#content_right_bottom").attr("src","../images/grades/b_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
-	} elseif ($value == 7) {
-		echo '$("#content_left").attr("src","../images/grades/a+_left.gif");';
+	} elseif (($value <= 4.5) && ($value > 3.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/c_left.gif");';
 		echo "\n";
-		echo '$("#content_left").delay(1000).fadeIn(1500);';
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
 		echo "\n";
-		echo '$("#content_right").attr("src","../images/grades/a+_right.gif");';
+		echo '$("#content_right_top").attr("src","../images/grades/c_right.gif");';
 		echo "\n";
-		echo '$("#content_right").delay(1000).fadeIn(1500);';
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_left_bottom").attr("src","../images/grades/c_left.gif");';
+		echo "\n";
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_bottom").attr("src","../images/grades/c_right.gif");';
+		echo "\n";
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+	} elseif (($value <= 3.5) && ($value > 2.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/d_left.gif");';
+		echo "\n";
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_top").attr("src","../images/grades/d_right.gif");';
+		echo "\n";
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_left_bottom").attr("src","../images/grades/d_left.gif");';
+		echo "\n";
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_bottom").attr("src","../images/grades/d_right.gif");';
+		echo "\n";
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+	} elseif (($value <= 2.5) && ($value > 1.5)) {
+		echo '$("#content_left_top").attr("src","../images/grades/e_left.gif");';
+		echo "\n";
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_top").attr("src","../images/grades/e_right.gif");';
+		echo "\n";
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_left_bottom").attr("src","../images/grades/e_left.gif");';
+		echo "\n";
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_bottom").attr("src","../images/grades/e_right.gif");';
+		echo "\n";
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+	} elseif (($value <= 1.5) && ($value >= 1)) {
+		echo '$("#content_left_top").attr("src","../images/grades/f_left.gif");';
+		echo "\n";
+		echo '$("#content_left_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_top").attr("src","../images/grades/f_right.gif");';
+		echo "\n";
+		echo '$("#content_right_top").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_left_bottom").attr("src","../images/grades/f_left.gif");';
+		echo "\n";
+		echo '$("#content_left_bottom").delay(1000).fadeIn(1500);';
+		echo "\n";
+		echo '$("#content_right_bottom").attr("src","../images/grades/f_right.gif");';
+		echo "\n";
+		echo '$("#content_right_bottom").delay(1000).fadeIn(1500);';
 		echo "\n";
 	}
 }

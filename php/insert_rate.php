@@ -34,6 +34,17 @@ if (isset($_POST['insert_rate_y']) == TRUE and isset($_POST['insert_rate_x']) ==
 		}
 		$_SESSION["Insert"] = "1";
 		$stmt -> close();
+		$stmt = $connect -> stmt_init();
+		$query = "DELETE FROM t_TAN WHERE t_tan = ?";
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!($stmt -> bind_param("s", $_POST['TAN']))) {
+			echo "Bind failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
 		header("Location: ../html/forward.html");
 	} else {
 		$_SESSION["Insert"] = "0";
