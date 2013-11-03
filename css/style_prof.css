@@ -171,10 +171,12 @@ div.content-right {
 }
 img#content_left {
 	margin-top: 400px;
+	display: none;
 	width: 100px;
 }
 img#content_right {
 	margin-top: 400px;
+	display: none;
 	width: 100px;
 }
 
