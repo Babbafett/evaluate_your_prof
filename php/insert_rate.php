@@ -1,10 +1,7 @@
 <?php
 if (isset($_POST['insert_rate_y']) == TRUE and isset($_POST['insert_rate_x']) == TRUE) {
 	session_start();
-	$connect = new mysqli('localhost', 'root', '', 'db_evaluate_your_prof');
-	if ($connect -> connect_errno) {
-		echo "Failed to connect to MySQL: " . $connect -> connect_error;
-	}
+	require_once ('getConnection.php');
 	$query = "SELECT t_tan FROM t_tan WHERE t_prof = ? AND t_course = ?";
 	$stmt = $connect -> stmt_init();
 	if (!($stmt -> prepare($query))) {

@@ -1,9 +1,6 @@
 <?php
 if (isset($_POST['generate_tan'])) {
-	$connect = new mysqli('localhost', 'root', '', 'db_evaluate_your_prof');
-	if ($connect -> connect_errno) {
-		echo "Failed to connect to MySQL: " . $connect -> connect_error;
-	}
+	require_once('getConnection.php');
 	$stmt = $connect -> stmt_init();
 	$query = "SELECT c_token FROM t_course WHERE c_name = ?";
 	if (!($stmt -> prepare($query))) {

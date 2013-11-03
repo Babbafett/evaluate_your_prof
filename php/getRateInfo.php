@@ -9,10 +9,7 @@ if (isset($_GET["course"]) == TRUE and isset($_GET["prof"]) == TRUE and isset($_
 			echo "<script type =text/javascript> alert('TAN was already used or wrong TAN, please use a right TAN'); </script>";
 		}
 	}
-	$connect = new mysqli('localhost', 'root', '', 'db_evaluate_your_prof');
-	if ($connect -> connect_errno) {
-		echo "Failed to connect to MySQL: " . $connect -> connect_error;
-	}
+	require_once('getConnection.php');
 	$stmt = $connect -> stmt_init();
 	$query = "SELECT c_name,c_credits,u_name,p_lastname,p_forname,p_title FROM t_prof INNER JOIN t_prof_course ON t_prof.p_id = t_prof_course.p_id INNER JOIN t_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE t_prof.p_id = ? AND t_course.c_id = ? AND u_id = ?";
 	if (!($stmt -> prepare($query))) {
