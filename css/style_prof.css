@@ -7,10 +7,13 @@ html, body {
 	background-color: rgb(123,185,41);
 }
 
+
 @font-face {
 	font-family: bad_font;
 	src: url('../fonts/bad_font.otf');
 }
+
+
 
 div.wrapper-head {
 	overflow: hidden;
@@ -191,6 +194,60 @@ img#content_right_bottom {
 	display: none;
 	width: 100px;
 }
+
+h1{	
+	text-align: center;
+	display:inline;	
+}
+
+h3{
+	font-family: bad_font;
+	font-size:40px;
+}	
+
+p{
+	display:inline;
+}
+
+p.image{	
+	text-align:right !important;
+	float:right;	
+}
+
+button{
+	
+	text-align:center;
+	height:50px;
+	width:200px;
+}
+
+ul{
+	list-style-type:none;
+}
+
+li{
+	font-family:cursive;
+	font-size:15px;
+}
+
+li.Comment{
+	position:relative;
+	left:140px;
+	background-color: rgb(123,185,41);
+	color: #000;
+	width: 900px;
+	border-style: solid;
+	border-color: #787878;
+	border-width: 1px 1px 1px;
+	margin: 10px;
+}
+
+li.Course{
+	position: relative;
+	float: left;	
+	width:50%;
+}
+
 
 footer {
 	overflow: hidden;
