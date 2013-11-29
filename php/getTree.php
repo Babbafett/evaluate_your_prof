@@ -25,6 +25,7 @@ if (isset($_GET['view'])) {
 			echo "Prepare failed: " . $connect -> errno . $connect -> error;
 		}
 		foreach ($prof as $p) {
+			unset($course);
 			echo "<li>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"];
 			echo "\n";
 			if (!($stmt -> bind_param("d", $p["p_id"]))) {

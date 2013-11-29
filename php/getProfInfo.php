@@ -51,11 +51,11 @@ if (isset($_GET["prof"])) {
 	echo "\n";
 	echo 'scaleOverride : true,';
 	echo "\n";
-	echo 'scaleSteps : 6,';
+	echo 'scaleSteps : 7,';
 	echo "\n";
 	echo 'scaleStepWidth : 1,';
 	echo "\n";
-	echo 'scaleStartValue : 1';
+	echo 'scaleStartValue : 0';
 	echo "\n";
 	echo '};';
 	echo "\n";
