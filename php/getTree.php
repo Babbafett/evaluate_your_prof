@@ -17,7 +17,7 @@ if (isset($_GET['view'])) {
 	}
 	$stmt -> close();
 	if ($_GET['view'] == 'rate') {
-		echo '<ul class = "rate">';
+		echo '<ul class = "rate_1">';
 		echo "\n";
 		$query = "SELECT t_course.c_id, c_name, c_university, u_name, c_credits FROM t_course INNER JOIN t_prof_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE p_id = ? ";
 		$stmt = $connect -> stmt_init();
@@ -40,7 +40,7 @@ if (isset($_GET['view'])) {
 			while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
 				$course[] = $row;
 			}
-			echo "<ul>";
+			echo '<ul class = "rate_2">';
 			echo "\n";
 			foreach ($course as $c) {
 				echo "<li><a href='rate.html?course=" . $c["c_id"] . "&prof=" . $p["p_id"] . "&university=" . $c["c_university"] . "'>" . $c["u_name"] . " " . $c["c_name"] . " " . $c["c_credits"] . " CP" . "</a></li>";
