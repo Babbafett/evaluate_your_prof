@@ -55,6 +55,8 @@ if (isset($_GET['view'])) {
 		echo "</li>";
 		echo "\n";
 	} elseif ($_GET['view'] == 'prof') {
+		echo "<h1>Navigate your prof</h1>";
+		echo "\n";
 		echo '<ul class = "prof">';
 		echo "\n";
 		foreach ($prof as $p) {
