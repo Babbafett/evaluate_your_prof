@@ -154,6 +154,37 @@ div.content {
 	width: 100%;
 	height: 100%;
 }
+ul{
+	list-style-type:none;	
+	display: block;
+	margin: 0 auto;
+}
+li.test{
+	
+	
+	display: block;
+	margin: 0 auto;
+	position:relative;
+	width:80%;
+	height:100%;
+	border:2px solid;
+	font-family:cursive;
+	font-size:20px;
+	list-style-type: none;
+	background: -webkit-linear-gradient(left, #0F5B0B, #7BB918);
+	
+	
+	
+}
+button{
+	display:block;
+	text-align:center;
+	position:relative;
+	height:50px;
+	width:100%;
+	
+}
+
 h1{
 		font-family: bad_font;
 		font-size:50px;
@@ -164,13 +195,8 @@ h3{
 	font-family:bad_font;
 	font-size:40px;
 }
-ul{
-	list-style-type:none;	
-}
-li{
-	font-family:cursive;
-	font-size:20px;
-}
+
+
 footer {
 	overflow: hidden;
 	height: 30px;

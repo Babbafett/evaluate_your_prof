@@ -54,7 +54,7 @@ if (isset($_GET['view'])) {
 		echo "\n";
 	} elseif ($_GET['view'] == 'prof') {
 		foreach ($prof as $p) {
-			echo "<li><a href='prof.html?prof=" . $p["p_id"] . "'>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . "</a></li>";
+			echo "<li class='test'><a href='prof.html?prof=" . $p["p_id"] . "'>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . "</a></li>";
 		}
 	}
 	echo "</ul>";
