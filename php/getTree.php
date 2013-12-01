@@ -59,5 +59,20 @@ if (isset($_GET['view'])) {
 	}
 	echo "</ul>";
 	echo "\n";
+	if($_GET['view'] == 'rate')
+	{
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo '$("link[rel=stylesheet]").attr({href: "../css/style_overview_rate.css"});';
+		echo "\n";
+		echo '</script>';
+	}
+	elseif ($_GET['view'] == 'prof') {
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo '$("link[rel=stylesheet]").attr({href: "../css/style_overview_prof.css"});';
+		echo "\n";
+		echo '</script>';			
+	}
 }
 ?>

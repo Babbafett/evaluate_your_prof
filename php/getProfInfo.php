@@ -63,6 +63,153 @@ if (isset($_GET["prof"])) {
 	echo "\n";
 	getGradeImage($prof['overall']);
 	echo '</script>';
+	echo "\n";
+
+	unset($prof);
+	$stmt = $connect -> stmt_init();
+	$query = 'SELECT count(e_id) as count FROM t_evaluation where e_prof = ?';
+	if (!($stmt -> prepare($query))) {
+		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!($stmt -> bind_param("d", $_GET["prof"]))) {
+		echo "Bind failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!$stmt -> execute()) {
+		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	if (!($result = $stmt -> get_result())) {
+		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+		$prof = $row;
+	}
+	$stmt -> close();
+
+	$count = $prof['count'];
+
+	echo '<p> Ratings in Total:</p>';
+	echo "\n";
+	echo '<p>' . $prof['count'] . '</p>';
+	echo "\n";
+	echo '<br></br>';
+	echo "\n";
+
+	unset($prof);
+	$stmt = $connect -> stmt_init();
+	$query = 'SELECT t_prof.p_id as prof_id, t_course.c_id as course_id, u_id,  p_lastname, p_forname, p_title, c_name,  c_credits, u_name  FROM t_prof INNER JOIN t_prof_course ON t_prof.p_id = t_prof_course.p_id INNER JOIN t_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE t_prof.p_id = ?';
+	if (!($stmt -> prepare($query))) {
+		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!($stmt -> bind_param("d", $_GET["prof"]))) {
+		echo "Bind failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!$stmt -> execute()) {
+		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	if (!($result = $stmt -> get_result())) {
+		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+		$prof[] = $row;
+	}
+	$stmt -> close();
+
+	echo '<h1>' . $prof[0]['p_title'] . ' ' . $prof[0]['p_forname'] . ' ' . $prof[0]['p_lastname'] . '</h1>';
+	echo "\n";
+	echo '<h3> Courses </h3>';
+	echo "\n";
+	echo '<ul>';
+	echo "\n";
+	foreach ($prof as $p) {
+		echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['c_name'] . "</a></li>";
+	}
+	echo "\n";
+	echo '</ul>';
+	echo "\n";
+
+	echo '<h3> random positive Comment </h3>';
+	echo "\n";
+	echo "<ul>";
+	echo "\n";
+	$random = rand(1, $count);
+	unset($prof);
+	$stmt = $connect -> stmt_init();
+	$query = 'SELECT e_comment_positive FROM t_evaluation WHERE e_id = ?';
+	if (!($stmt -> prepare($query))) {
+		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!($stmt -> bind_param("d", $random))) {
+		echo "Bind failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!$stmt -> execute()) {
+		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	if (!($result = $stmt -> get_result())) {
+		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+		$prof = $row;
+	}
+	$stmt -> close();
+	echo '<li class="Comment">' . $prof['e_comment_positive'] . "</li>";
+	echo "\n";
+	echo "</ul>";
+
+	echo '<h3> random negative Comment </h3>';
+	echo "\n";
+	echo "<ul>";
+	echo "\n";
+	$random = rand(1, $count);
+	unset($prof);
+	$stmt = $connect -> stmt_init();
+	$query = 'SELECT e_comment_negative FROM t_evaluation WHERE e_id = ?';
+	if (!($stmt -> prepare($query))) {
+		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!($stmt -> bind_param("d", $random))) {
+		echo "Bind failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!$stmt -> execute()) {
+		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	if (!($result = $stmt -> get_result())) {
+		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+		$prof = $row;
+	}
+	$stmt -> close();
+	echo '<li class="Comment">' . $prof['e_comment_negative'] . "</li>";
+	echo "\n";
+	echo "</ul>";
+
+	echo '<h3> random Comment </h3>';
+	echo "\n";
+	echo "<ul>";
+	echo "\n";
+	$random = rand(1, $count);
+	unset($prof);
+	$stmt = $connect -> stmt_init();
+	$query = 'SELECT e_comment FROM t_evaluation WHERE e_id = ?';
+	if (!($stmt -> prepare($query))) {
+		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!($stmt -> bind_param("d", $random))) {
+		echo "Bind failed: " . $connect -> errno . $connect -> error;
+	}
+	if (!$stmt -> execute()) {
+		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	if (!($result = $stmt -> get_result())) {
+		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+	}
+	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+		$prof = $row;
+	}
+	$stmt -> close();
+	echo '<li class="Comment">' . $prof['e_comment'] . "</li>";
+	echo "\n";
+	echo "</ul>";
 }
 
 function getGradeImage($value) {
