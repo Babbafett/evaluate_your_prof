@@ -48,6 +48,8 @@ if (isset($_GET['view'])) {
 			}
 			echo "</ul>";
 			echo "\n";
+			echo "</li>";
+			echo "\n";
 		}
 		$stmt -> close();
 		echo "</li>";

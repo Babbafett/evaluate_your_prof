@@ -179,16 +179,9 @@ ul.prof li a:link, a:visited{
 		
 }
 ul.prof li a:hover {
-	 color:green; text-decoration:none; 
+	 color:black; text-decoration:none; 
 }
-button{
-	display:block;
-	text-align:center;
-	position:relative;
-	height:50px;
-	width:100%;
-	
-}
+
 
 h1{
 		font-family: bad_font;
