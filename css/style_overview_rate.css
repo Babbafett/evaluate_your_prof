@@ -154,12 +154,12 @@ div.content {
 	width: 100%;
 	height: 100%;
 }
-ul.rate{
+ul.rate_1{
 	list-style-type:none;	
 	display: block;
 	margin: 0 auto;
 }
-ul.rate li ul li a:link, a:visited{
+ul.rate_1 li a:link, a:visited{
 	
 	
 	display: block;
@@ -174,12 +174,20 @@ ul.rate li ul li a:link, a:visited{
 	list-style-type: none;
 	background: -webkit-linear-gradient(left, #0F5B0B, #7BB918);
 	text-decoration: none;
-	border-radius: 15px;
-	
+	border-radius: 15px;	
 		
 }
+ul.rate_1 li a:hover {
+	 color:black; text-decoration:none; 
+}
 
-/*ul.rate li a:link, a:visited{
+ul.rate_2{
+	list-style-type:none;	
+	display: block;
+	margin: 0 auto;
+}
+
+ul.rate_2 li a:link, a:visited{
 	display: block;
 	margin: 8px auto;
 	padding:5px;
@@ -195,10 +203,10 @@ ul.rate li ul li a:link, a:visited{
 	border-radius: 15px;
 	
 }
-ul.rate li a:hover {
+ul.rate_2 li a:hover {
 	 color:black; text-decoration:none; 
+	 
 }
-*/
 h1{
 		font-family: bad_font;
 		font-size:50px;
