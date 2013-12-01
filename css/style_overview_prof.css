@@ -164,13 +164,7 @@ h3{
 	font-family:bad_font;
 	font-size:40px;
 }
-ul{
-	list-style-type:none;	
-}
-li{
-	font-family:cursive;
-	font-size:20px;
-}
+
 footer {
 	overflow: hidden;
 	height: 30px;
@@ -180,4 +174,3 @@ footer {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
-

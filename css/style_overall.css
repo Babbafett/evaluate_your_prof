@@ -156,6 +156,17 @@ canvas#overall{
 	display:block;
 	margin: 0 auto;
 }
+/*
+canvas#contentual{
+	display:inline;
+}
+canvas#competence{
+	display:inline;
+}
+p{
+	display:inline;
+}
+*/
 
 footer {
 	overflow: hidden;
