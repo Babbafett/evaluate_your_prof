@@ -37,43 +37,111 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<h1>Top 3 overall</h1>
-					<canvas id="overall" width="1000" height="400">
+					<ul class="canvas_top">
+						<li>
+							<h1>Top 3 overall</h1>
+							<canvas id="overall_all" width="1000" height="400">
 
-					</canvas>
-					<p>Top 3 contentual</p>
-					<canvas id="contentual" width="400" height="400">
+							</canvas>
+						</li>
+						<li>
+							<h2>good/bad rate ratio</h2>
+							<canvas id="good_bad" width="550" height="400">
 
-					</canvas>
-					<p>Top 3 competence</p>
-					<canvas id="competence" width="400" height="400">
+							</canvas>
+						</li>
+					</ul>
+					<ul class="canvas_top">
+						<li>
+							<h1>Top 3 user overall</h1>
+							<canvas id="overall" width="1000" height="400">
 
-					</canvas>
-					<p>Top 3 eloquence</p>
-					<canvas id="eloquence" width="700" height="400">
+							</canvas>
+						</li>
+					</ul>
+					<ul class="canvas">
+						<li>
+							<h2>
+								Top 3 contentual
+							</h2>
+							<canvas id="contentual" width="550" height="400">
 
-					</canvas>
-					<p>Top 3 motivation prof</p>
-					<canvas id="motivation_prof" width="700" height="400">
+							</canvas>
+						</li>
+						<li>
+							<h2>
+								Top 3 competence
+							</h2>
+							<canvas id="competence" width="550" height="400">
 
-					</canvas>
-					<p>Top 3 test requirements</p>
-					<canvas id="test_requirements" width="700" height="400">
-						
-					</canvas>
-					<p>Top 3 soft skills</p>
-					<canvas id="soft_skills" width="700" height="400">
+							</canvas>
+						</li>
+					</ul>
+					<ul class="canvas">
+						<li>
+							<h2>
+								Top 3 eloquence
+							</h2>
+							<canvas id="eloquence" width="550" height="400">
 
-					</canvas>
-					<p>Top 3 hottest prof</p>
-					<canvas id="hot" width="700" height="400">
-						
-					</canvas>
-					<p>Top 3 media usage</p>
-					<canvas id="media_usage" width="700" height="400">
+							</canvas>
+						</li>
+						<li>
+							<h2>
+								Top 3 motivation prof
+							</h2>
+							<canvas id="motivation_prof" width="550" height="400">
 
-					</canvas>
-					<p>Ranking total</p>
+							</canvas>
+						</li>
+					</ul>
+					<ul class="canvas">
+						<li>
+							<h2>
+								Top 3 test requirements
+							</h2>
+							<canvas id="test_requirements" width="550" height="400">
+
+							</canvas>
+						</li>
+						<li>
+							<h2>
+								Top 3 soft skills
+							</h2>
+							<canvas id="soft_skills" width="550" height="400">
+
+							</canvas>
+						</li>
+					</ul>
+
+					<ul class="canvas">
+						<li>
+							<h2>
+								Top 3 hottest prof
+							</h2>
+							<canvas id="hot" width="550" height="400">
+
+							</canvas>
+						</li>
+						<li>
+							<h2>
+								Top 3 media usage
+							</h2>
+							<canvas id="media_usage" width="550" height="400">
+
+							</canvas>
+						</li>
+					</ul>
+
+					<ul class="canvas">
+						<li>
+
+						</li>
+						<li>
+
+						</li>
+					</ul>
+
 					<?php
 					require_once("../php/getOverall.php");
 					?>
