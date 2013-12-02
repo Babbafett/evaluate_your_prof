@@ -40,9 +40,6 @@ if (isset($_SESSION['Login'])) {
 				if (!($stmt -> prepare($query))) {
 					echo "Prepare failed: " . $connect -> errno . $connect -> error;
 				}
-				if (!($stmt -> bind_param("d", $_GET["prof"]))) {
-					echo "Bind failed: " . $connect -> errno . $connect -> error;
-				}
 				if (!$stmt -> execute()) {
 					echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
 				}
@@ -50,9 +47,17 @@ if (isset($_SESSION['Login'])) {
 					echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
 				}
 				while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-					$prof = $row;
+					$prof[] = $row;
 				}
 				$stmt -> close();
+				echo '<form name="add_prof" action="admin_prof.html" method="POST">';
+				echo "\n";
+				echo '<select name="title" size="1" style="width: 215px">';
+				echo "\n";
+				
+				foreach ($prof as $p) {
+					echo '<option>';
+				}
 				echo "<h1>TAN generate</h1>";
 				echo "\n";
 				echo '<form name="generateTAN" action="admin_tan.html" method="POST">';
@@ -103,11 +108,7 @@ if (isset($_SESSION['Login'])) {
 			} else {
 
 			}
-		} else {
-			require_once ('../php/getTreeAdmin.php');
-		}
-	} else {
-		require_once ('../php/generateTAN.php');
+		} 
 	}
 } else {
 	echo '<form action="admin.html" method="POST">';

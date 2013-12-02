@@ -28,8 +28,7 @@ if (isset($_GET['view'])) {
 		}
 		foreach ($prof as $p) {
 			unset($course);
-			echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"].'</h2>';
-			echo "\n";
+
 			if (!($stmt -> bind_param("d", $p["p_id"]))) {
 				echo "Bind failed: " . $connect -> errno . $connect -> error;
 			}
@@ -42,16 +41,20 @@ if (isset($_GET['view'])) {
 			while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
 				$course[] = $row;
 			}
-			echo '<ul class = "rate_2">';
-			echo "\n";
-			foreach ($course as $c) {
-				echo "<li><a href='rate.html?course=" . $c["c_id"] . "&prof=" . $p["p_id"] . "&university=" . $c["c_university"] . "'>" . $c["u_name"] . " " . $c["c_name"] . " " . $c["c_credits"] . " CP" . "</a></li>";
+			if (!empty($course)) {
+				echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . '</h2>';
+				echo "\n";
+				echo '<ul class = "rate_2">';
+				echo "\n";
+				foreach ($course as $c) {
+					echo "<li><a href='rate.html?course=" . $c["c_id"] . "&prof=" . $p["p_id"] . "&university=" . $c["c_university"] . "'>" . $c["u_name"] . " " . $c["c_name"] . " " . $c["c_credits"] . " CP" . "</a></li>";
+					echo "\n";
+				}
+				echo "</ul>";
+				echo "\n";
+				echo "</li>";
 				echo "\n";
 			}
-			echo "</ul>";
-			echo "\n";
-			echo "</li>";
-			echo "\n";
 		}
 		$stmt -> close();
 		echo "</li>";

@@ -19,52 +19,99 @@ if (isset($_GET["prof"])) {
 		$prof = $row;
 	}
 	$stmt -> close();
-	echo '<script type="text/javascript">';
-	echo "\n";
-	echo 'var data = {';
-	echo "\n";
-	echo 'labels : ["contentual","competence","eloquence","motivation prof", "motivation before","motivation after", "test requirements","media usage","soft skills"],';
-	echo "\n";
-	echo 'datasets : [';
-	echo "\n";
-	echo '{';
-	echo "\n";
-	echo 'fillColor : "rgba(151,187,205,0.5)",';
-	echo "\n";
-	echo 'strokeColor : "rgba(151,187,205,1)",';
-	echo "\n";
-	echo 'pointColor : "rgba(151,187,205,1)",';
-	echo "\n";
-	echo 'pointStrokeColor : "#fff",';
-	echo "\n";
-	echo 'data : [' . $prof['contentual'] . ',' . $prof['competence'] . ',' . $prof['eloquence'] . ',' . $prof['motivation_prof'] . ',' . $prof['motivation_before'] . ',' . $prof['motivation_after'] . ',' . $prof['test_requirements'] . ',' . $prof['media_usage'] . ',' . $prof['soft_skills'] . ']';
-	echo "\n";
-	echo '}';
-	echo "\n";
-	echo ']';
-	echo "\n";
-	echo '};';
-	echo "\n";
-	echo 'var ctx = $("#chart").get(0).getContext("2d");';
-	echo "\n";
-	echo 'var options = {';
-	echo "\n";
-	echo 'scaleOverride : true,';
-	echo "\n";
-	echo 'scaleSteps : 7,';
-	echo "\n";
-	echo 'scaleStepWidth : 1,';
-	echo "\n";
-	echo 'scaleStartValue : 0';
-	echo "\n";
-	echo '};';
-	echo "\n";
-	echo 'var chart = new Chart(ctx).Radar(data,options);';
-	echo "\n";
-	getGradeImage($prof['overall']);
-	echo '</script>';
-	echo "\n";
+	if (!empty($prof)) {
 
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo 'var data = {';
+		echo "\n";
+		echo 'labels : ["contentual","competence","eloquence","motivation prof", "motivation before","motivation after", "test requirements","media usage","soft skills"],';
+		echo "\n";
+		echo 'datasets : [';
+		echo "\n";
+		echo '{';
+		echo "\n";
+		echo 'fillColor : "rgba(151,187,205,0.5)",';
+		echo "\n";
+		echo 'strokeColor : "rgba(151,187,205,1)",';
+		echo "\n";
+		echo 'pointColor : "rgba(151,187,205,1)",';
+		echo "\n";
+		echo 'pointStrokeColor : "#fff",';
+		echo "\n";
+		echo 'data : [' . $prof['contentual'] . ',' . $prof['competence'] . ',' . $prof['eloquence'] . ',' . $prof['motivation_prof'] . ',' . $prof['motivation_before'] . ',' . $prof['motivation_after'] . ',' . $prof['test_requirements'] . ',' . $prof['media_usage'] . ',' . $prof['soft_skills'] . ']';
+		echo "\n";
+		echo '}';
+		echo "\n";
+		echo ']';
+		echo "\n";
+		echo '};';
+		echo "\n";
+		echo 'var ctx = $("#chart").get(0).getContext("2d");';
+		echo "\n";
+		echo 'var options = {';
+		echo "\n";
+		echo 'scaleOverride : true,';
+		echo "\n";
+		echo 'scaleSteps : 7,';
+		echo "\n";
+		echo 'scaleStepWidth : 1,';
+		echo "\n";
+		echo 'scaleStartValue : 0';
+		echo "\n";
+		echo '};';
+		echo "\n";
+		echo 'var chart = new Chart(ctx).Radar(data,options);';
+		echo "\n";
+		getGradeImage($prof['overall']);
+		echo '</script>';
+		echo "\n";
+	} else {
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo 'var data = {';
+		echo "\n";
+		echo 'labels : ["contentual","competence","eloquence","motivation prof", "motivation before","motivation after", "test requirements","media usage","soft skills"],';
+		echo "\n";
+		echo 'datasets : [';
+		echo "\n";
+		echo '{';
+		echo "\n";
+		echo 'fillColor : "rgba(151,187,205,0.5)",';
+		echo "\n";
+		echo 'strokeColor : "rgba(151,187,205,1)",';
+		echo "\n";
+		echo 'pointColor : "rgba(151,187,205,1)",';
+		echo "\n";
+		echo 'pointStrokeColor : "#fff",';
+		echo "\n";
+		echo 'data : [0,0,0,0,0,0,0,0,0]';
+		echo "\n";
+		echo '}';
+		echo "\n";
+		echo ']';
+		echo "\n";
+		echo '};';
+		echo "\n";
+		echo 'var ctx = $("#chart").get(0).getContext("2d");';
+		echo "\n";
+		echo 'var options = {';
+		echo "\n";
+		echo 'scaleOverride : true,';
+		echo "\n";
+		echo 'scaleSteps : 7,';
+		echo "\n";
+		echo 'scaleStepWidth : 1,';
+		echo "\n";
+		echo 'scaleStartValue : 0';
+		echo "\n";
+		echo '};';
+		echo "\n";
+		echo 'var chart = new Chart(ctx).Radar(data,options);';
+		echo "\n";
+		echo '</script>';
+		echo "\n";
+	}
 	unset($prof);
 	$stmt = $connect -> stmt_init();
 	$query = 'SELECT count(e_id) as count FROM t_evaluation where e_prof = ?';
@@ -96,7 +143,7 @@ if (isset($_GET["prof"])) {
 
 	unset($prof);
 	$stmt = $connect -> stmt_init();
-	$query = 'SELECT t_prof.p_id as prof_id, t_course.c_id as course_id, u_id,  p_lastname, p_forname, p_title, c_name,  c_credits, u_name  FROM t_prof INNER JOIN t_prof_course ON t_prof.p_id = t_prof_course.p_id INNER JOIN t_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE t_prof.p_id = ?';
+	$query = 'SELECT p_id ,p_lastname, p_forname, p_title FROM t_prof WHERE p_id = ?';
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
@@ -116,29 +163,13 @@ if (isset($_GET["prof"])) {
 
 	echo '<h1>' . $prof[0]['p_title'] . ' ' . $prof[0]['p_forname'] . ' ' . $prof[0]['p_lastname'] . '</h1>';
 	echo "\n";
-	echo '<h3> Courses </h3>';
-	echo "\n";
-	echo '<ul>';
-	echo "\n";
-	foreach ($prof as $p) {
-		echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['c_name'] . "</a></li>";
-	}
-	echo "\n";
-	echo '</ul>';
-	echo "\n";
 
-	echo '<h3> random positive Comment </h3>';
-	echo "\n";
-	echo "<ul>";
-	echo "\n";
-	$random = rand(1, $count);
-	unset($prof);
 	$stmt = $connect -> stmt_init();
-	$query = 'SELECT e_comment_positive FROM t_evaluation WHERE e_id = ?';
+	$query = 'SELECT t_prof.p_id as prof_id, t_course.c_id as course_id, u_id,  p_lastname, p_forname, p_title, c_name,  c_credits, u_name  FROM t_prof INNER JOIN t_prof_course ON t_prof.p_id = t_prof_course.p_id INNER JOIN t_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE t_prof.p_id = ?';
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
-	if (!($stmt -> bind_param("d", $random))) {
+	if (!($stmt -> bind_param("d", $_GET["prof"]))) {
 		echo "Bind failed: " . $connect -> errno . $connect -> error;
 	}
 	if (!$stmt -> execute()) {
@@ -148,68 +179,105 @@ if (isset($_GET["prof"])) {
 		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
 	}
 	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-		$prof = $row;
+		$course[] = $row;
 	}
 	$stmt -> close();
-	echo '<li class="Comment">' . $prof['e_comment_positive'] . "</li>";
-	echo "\n";
-	echo "</ul>";
+	if (!empty($course)) {
+		echo '<h3> Courses </h3>';
+		echo "\n";
+		echo '<ul>';
+		echo "\n";
+		foreach ($course as $p) {
+			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['c_name'] . "</a></li>";
+		}
+		echo "\n";
+		echo '</ul>';
+		echo "\n";
 
-	echo '<h3> random negative Comment </h3>';
-	echo "\n";
-	echo "<ul>";
-	echo "\n";
-	$random = rand(1, $count);
-	unset($prof);
-	$stmt = $connect -> stmt_init();
-	$query = 'SELECT e_comment_negative FROM t_evaluation WHERE e_id = ?';
-	if (!($stmt -> prepare($query))) {
-		echo "Prepare failed: " . $connect -> errno . $connect -> error;
-	}
-	if (!($stmt -> bind_param("d", $random))) {
-		echo "Bind failed: " . $connect -> errno . $connect -> error;
-	}
-	if (!$stmt -> execute()) {
-		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
-	}
-	if (!($result = $stmt -> get_result())) {
-		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
-	}
-	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-		$prof = $row;
-	}
-	$stmt -> close();
-	echo '<li class="Comment">' . $prof['e_comment_negative'] . "</li>";
-	echo "\n";
-	echo "</ul>";
+		echo '<h3> random positive Comment </h3>';
+		echo "\n";
+		echo "<ul>";
+		echo "\n";
+		$random = rand(1, $count);
+		unset($prof);
+		$stmt = $connect -> stmt_init();
+		$query = 'SELECT e_comment_positive FROM t_evaluation WHERE e_id = ?';
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!($stmt -> bind_param("d", $random))) {
+			echo "Bind failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		if (!($result = $stmt -> get_result())) {
+			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+			$prof = $row;
+		}
+		$stmt -> close();
+		echo '<li class="Comment">' . $prof['e_comment_positive'] . "</li>";
+		echo "\n";
+		echo "</ul>";
 
-	echo '<h3> random Comment </h3>';
-	echo "\n";
-	echo "<ul>";
-	echo "\n";
-	$random = rand(1, $count);
-	unset($prof);
-	$stmt = $connect -> stmt_init();
-	$query = 'SELECT e_comment FROM t_evaluation WHERE e_id = ?';
-	if (!($stmt -> prepare($query))) {
-		echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		echo '<h3> random negative Comment </h3>';
+		echo "\n";
+		echo "<ul>";
+		echo "\n";
+		$random = rand(1, $count);
+		unset($prof);
+		$stmt = $connect -> stmt_init();
+		$query = 'SELECT e_comment_negative FROM t_evaluation WHERE e_id = ?';
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!($stmt -> bind_param("d", $random))) {
+			echo "Bind failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		if (!($result = $stmt -> get_result())) {
+			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+			$prof = $row;
+		}
+		$stmt -> close();
+		echo '<li class="Comment">' . $prof['e_comment_negative'] . "</li>";
+		echo "\n";
+		echo "</ul>";
+
+		echo '<h3> random Comment </h3>';
+		echo "\n";
+		echo "<ul>";
+		echo "\n";
+		$random = rand(1, $count);
+		unset($prof);
+		$stmt = $connect -> stmt_init();
+		$query = 'SELECT e_comment FROM t_evaluation WHERE e_id = ?';
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!($stmt -> bind_param("d", $random))) {
+			echo "Bind failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		if (!($result = $stmt -> get_result())) {
+			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+			$prof = $row;
+		}
+		$stmt -> close();
+		echo '<li class="Comment">' . $prof['e_comment'] . "</li>";
+		echo "\n";
+		echo "</ul>";
 	}
-	if (!($stmt -> bind_param("d", $random))) {
-		echo "Bind failed: " . $connect -> errno . $connect -> error;
-	}
-	if (!$stmt -> execute()) {
-		echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
-	}
-	if (!($result = $stmt -> get_result())) {
-		echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
-	}
-	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-		$prof = $row;
-	}
-	$stmt -> close();
-	echo '<li class="Comment">' . $prof['e_comment'] . "</li>";
-	echo "\n";
-	echo "</ul>";
 }
 
 function getGradeImage($value) {
