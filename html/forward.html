@@ -37,9 +37,9 @@
 			<div class="wrapper-content-center">
 				<div class="content">
 					<p>
-						Your Evaluation was successfull, you will be redirected to the Home Website in 10 seconds.
+						Your Evaluation was successfull, you will be redirected to the Home Website in <span id = "count">10</span> seconds.
 					</p>
-					<a href="index.html">Click here to be redirected directly</a>
+					<a id="forward" href="index.html">Click here to be redirected directly</a>
 				</div>
 
 			</div>
@@ -59,6 +59,15 @@
 				</ul>
 			</footer>
 		</div>
+		<script type="text/javascript">
+			var i = 10;
 
+			function count_down() {
+				document.getElementById("count").firstChild.data = "" + --i;
+			}
+
+
+			window.setInterval("count_down()", 1000);
+		</script>
 	</body>
 </html>

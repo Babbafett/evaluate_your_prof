@@ -154,6 +154,10 @@ div.content {
 	height: 100%;
 }
 
+a#forward, a#forward:link, a#forward:visited {
+	color: rgb(123,185,41);
+}
+
 footer {
 	overflow: hidden;
 	height: 30px;
