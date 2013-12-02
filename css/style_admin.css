@@ -154,6 +154,10 @@ div.content {
 	height: 100%;
 }
 
+input[type = 'image']{
+	display:block;
+	margin: 0 auto;
+}
 footer {
 	overflow: hidden;
 	height: 30px;

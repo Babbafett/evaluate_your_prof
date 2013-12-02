@@ -1,12 +1,12 @@
 <?php
-if (isset($_POST['generate_tan'])) {
-	require_once('getConnection.php');
+if (isset($_POST['generate_tan_y']) == TRUE and isset($_POST['generate_tan_x']) == TRUE) {
+	require_once ('getConnection.php');
 	$stmt = $connect -> stmt_init();
-	$query = "SELECT c_token FROM t_course WHERE c_name = ?";
+	$query = "SELECT c_token FROM t_course WHERE c_id = ?";
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
-	if (!($stmt -> bind_param("s", $_POST["course"]))) {
+	if (!($stmt -> bind_param("d", $_POST["course"]))) {
 		echo "Bind failed: " . $connect -> errno . $connect -> error;
 	}
 	if (!$stmt -> execute()) {
@@ -19,15 +19,13 @@ if (isset($_POST['generate_tan'])) {
 		$course_token = $row[0];
 	}
 	$stmt -> close();
-	$prof = explode(" ", $_POST[prof]);
-	$forname = $prof[0];
-	$lastname = $prof[1];
+
 	$stmt = $connect -> stmt_init();
-	$query = "SELECT p_token FROM t_prof WHERE p_forname = ? AND p_lastname = ?";
+	$query = "SELECT p_token FROM t_prof WHERE p_id = ?";
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
-	if (!($stmt -> bind_param("ss", $forname, $lastname))) {
+	if (!($stmt -> bind_param("d", $_POST['prof']))) {
 		echo "Bind failed: " . $connect -> errno . $connect -> error;
 	}
 	if (!$stmt -> execute()) {
@@ -55,15 +53,37 @@ if (isset($_POST['generate_tan'])) {
 		$generated_tans[] = $row[0];
 	}
 	$stmt -> close();
-	do {
-		$TAN = generate($prof_token, $course_token);
-		$pruef = in_array($TAN, $generated_tans);
-	} while ($pruef);
+	for ($i = 1; $i <= $_POST['count_tan']; $i++) {
+		do {
+			$tan_pruef = generate($prof_token, $course_token);
+			$pruef = in_array($tan_pruef, $generated_tans);
+		} while ($pruef);
+		$tan[] = $tan_pruef;
+	}
+	foreach ($tan as $t) {
+		$stmt = $connect -> stmt_init();
+		$query = "INSERT into t_tan(t_course, t_prof,t_tan) VALUES(?,?,?)";
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!($stmt -> bind_param("dds", $_POST['course'], $_POST['prof'], $t))) {
+			echo "Bind failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		$stmt -> close();
+		echo $t;
+		echo "\n";
+
+	}
+
 	mysqli_close($connect);
-	function generate($token1, $token2) {
-		$token = rand(100000, 999999);
-		$TAN = $token1 . $token . $token2;
-		return $TAN;
-	};
+
 }
+function generate($token1, $token2) {
+	$token = rand(100000, 999999);
+	$TAN = $token1 . $token . $token2;
+	return $TAN;
+};
 ?>
