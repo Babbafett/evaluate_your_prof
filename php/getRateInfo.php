@@ -1,16 +1,19 @@
 <?php
 session_start();
+unset($_SESSION["prof"]);
+unset($_SESSION["course"]);
+unset($_SESSION["university"]);
 if (isset($_GET["course"]) == TRUE and isset($_GET["prof"]) == TRUE and isset($_GET["university"]) == TRUE) {
 	$_SESSION["prof"] = $_GET["prof"];
 	$_SESSION["course"] = $_GET["course"];
 	$_SESSION["university"] = $_GET["university"];
 	if (isset($_SESSION["Insert"])) {
 		if ($_SESSION["Insert"] == 0) {
+			unset($_SESSION['Insert']);
 			echo "<script type =text/javascript> alert('TAN was already used or wrong TAN, please use a right TAN'); </script>";
-			session_destroy();
 		}
 	}
-	require_once('getConnection.php');
+	require_once ('getConnection.php');
 	$stmt = $connect -> stmt_init();
 	$query = "SELECT c_name,c_credits,u_name,p_lastname,p_forname,p_title FROM t_prof INNER JOIN t_prof_course ON t_prof.p_id = t_prof_course.p_id INNER JOIN t_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE t_prof.p_id = ? AND t_course.c_id = ? AND u_id = ?";
 	if (!($stmt -> prepare($query))) {
