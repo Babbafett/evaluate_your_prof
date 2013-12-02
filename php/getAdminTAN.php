@@ -58,7 +58,7 @@ if (isset($_SESSION['Login'])) {
 				echo '<form name="generateTAN" action="admin_tan.html" method="POST">';
 				echo "\n";
 
-				echo "<p>" . $prof['p_title'] . ' ' . $prof['p_forname'] . ' ' . $prof['p_lastname'] . "</p>";
+				echo "<h2>" . $prof['p_title'] . ' ' . $prof['p_forname'] . ' ' . $prof['p_lastname'] . "</h2>";
 				echo "\n";
 				echo '<input type = "hidden" name = "prof" value = "' . $_GET['prof'] . '">';
 				echo "\n";
@@ -81,11 +81,11 @@ if (isset($_SESSION['Login'])) {
 				}
 				$stmt -> close();
 
-				echo "<p>" . $course['u_name'] . ' ' . $course['c_name'] . ' ' . $course['c_credits'] . ' CP' . "</p>";
+				echo "<h2>" . $course['u_name'] . ' ' . $course['c_name'] . ' ' . $course['c_credits'] . ' CP' . "</h2>";
 				echo "\n";
 				echo '<input type = "hidden" name = "course" value = "' . $_GET['course'] . '">';
 				echo "\n";
-				echo "<p>Count TANs:</p>";
+				echo "<h2>Count TANs:</h2>";
 				echo "\n";
 				echo '<input required name="count_tan" type="number" size="2" maxlength="2">';
 				echo "\n";
