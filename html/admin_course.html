@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/style_admin_course.css"/>
+		<title>New Web Project</title>
+	</head>
+	<body>
+		<div class="wrapper-head">
+			<header>
+				<a href="index.html"><img src="../images/header/logo_w.png" alt="LOGO" id="logo"/></a>
+			</header>
+			<nav>
+				<ul id="nav">
+					<li>
+						<a href="index.html"> hOme</a>
+					</li>
+					<li>
+						<a href="overall.html"> overAl</a>
+					</li>
+					<li>
+						<a href="overview.html?view=prof"> Prof</a>
+					</li>
+					<li>
+						<a href="overview.html?view=rate"> rate</a>
+					</li>
+					<li>
+						<a href="#"> admIN</a>
+					</li>
+
+				</ul>
+			</nav>
+		</div>
+		<div class="wrapper-main">
+
+			<div class="wrapper-content-center">
+				<div class="content">
+					<form name="newCourse" action="select.htm">
+						<p>
+							Dozent:
+						</p>
+							<select name="profSelect" size="1" style="width: 215px">
+								<option>Prof. Dr.Manfred Meyer</option>
+								<option>Prof. Dr. Ralf Marquardt</option>
+							</select>
+							<br>
+						<p>		
+							Kursname:
+						</p>
+							<input name="course" type="text" size="30" maxlength="40">
+							<br>
+						<p>	
+							Credit Points: 
+						</p>	
+							<input name="cp" type="text" size="30" maxlength="2">
+							<br>
+						<p>	
+							Universität: 
+						</p>	
+							<input name="uni" type="text" size="30" maxlength="40">
+							<br>
+						<label>
+							<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
+						</label>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="wrapper-footer">
+			<footer>
+				<ul id="footer">
+
+					<li>
+						<a href="about.html"> abOut</a>
+					</li>
+					<li>
+						<a href="contact.html"> coNtact</a>
+					</li>
+
+				</ul>
+			</footer>
+		</div>
+
+	</body>
+</html>
