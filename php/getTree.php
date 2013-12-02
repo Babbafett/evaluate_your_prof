@@ -17,6 +17,8 @@ if (isset($_GET['view'])) {
 	}
 	$stmt -> close();
 	if ($_GET['view'] == 'rate') {
+		echo "<h1>Navigate your Course</h1>";
+		echo "\n";
 		echo '<ul class = "rate_1">';
 		echo "\n";
 		$query = "SELECT t_course.c_id, c_name, c_university, u_name, c_credits FROM t_course INNER JOIN t_prof_course ON t_prof_course.c_id = t_course.c_id INNER JOIN t_university ON c_university = u_id WHERE p_id = ? ";
@@ -26,7 +28,7 @@ if (isset($_GET['view'])) {
 		}
 		foreach ($prof as $p) {
 			unset($course);
-			echo "<li>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"];
+			echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"].'</h2>';
 			echo "\n";
 			if (!($stmt -> bind_param("d", $p["p_id"]))) {
 				echo "Bind failed: " . $connect -> errno . $connect -> error;

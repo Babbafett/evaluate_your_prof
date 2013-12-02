@@ -11,6 +11,10 @@ html, body {
 	font-family: bad_font;
 	src: url('../fonts/bad_font.otf');
 }
+@font-face {
+	font-family: bad_content_font;
+	src: url('../fonts/carbon.ttf');
+}
 
 div.wrapper-head {
 	overflow: hidden;
@@ -155,7 +159,73 @@ div.content {
 }
 input[type = 'image'] {
 	display: block;
-	margin:0 auto;
+	margin: 0 auto;
+}
+
+ul.rate_1 {
+	list-style-type: none;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+
+ul.rate_2 li a:link, a:visited {
+
+	display: block;
+	margin: 8px auto;
+	padding: 5px;
+	position: relative;
+	width: 80%;
+	height: 100%;
+	border: none;
+	font-family: cursive;
+	font-size: 20px;
+	list-style-type: none;
+	background: -webkit-linear-gradient(left, #0F5B0B, #7BB918);
+	text-decoration: none;
+	border-radius: 15px;
+}
+
+ul.rate_1 li a:hover {
+
+	color: black;
+	text-decoration: none;
+}
+
+ul.rate_2 {
+	list-style-type: none;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+
+ul.rate_2 li a:link, a:visited {
+	color:white;
+	display: block;
+	margin: 8px auto;
+	padding: 5px;
+	position: relative;
+	width: 80%;
+	height: 100%;
+	border: none;
+	font-family: cursive;
+	font-size: 20px;
+	list-style-type: none;
+	background: -webkit-linear-gradient(left, #0F5B0B, #7BB918);
+	text-decoration: none;
+	border-radius: 15px;
+}
+ul.rate_2 li a:hover {
+	color: black;
+	text-decoration: none;
+}
+h1 {
+	font-family: bad_font;
+	font-size: 50px;
+}
+h2 {
+	font-family: bad_content_font;
+	font-size: 20px;
 }
 footer {
 	overflow: hidden;

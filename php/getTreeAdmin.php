@@ -26,7 +26,7 @@ if (!($stmt -> prepare($query))) {
 }
 foreach ($prof as $p) {
 	unset($course);
-	echo "<li>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"];
+	echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"].'</h2>';
 	echo "\n";
 	if (!($stmt -> bind_param("d", $p["p_id"]))) {
 		echo "Bind failed: " . $connect -> errno . $connect -> error;
@@ -57,9 +57,4 @@ echo "\n";
 
 echo "</ul>";
 echo "\n";
-echo '<script type="text/javascript">';
-echo "\n";
-echo '$("link[rel=stylesheet]").attr({href: "../css/style_overview_rate.css"});';
-echo "\n";
-echo '</script>';
 ?>

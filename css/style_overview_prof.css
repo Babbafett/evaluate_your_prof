@@ -158,11 +158,13 @@ ul.prof{
 	list-style-type:none;	
 	display: block;
 	margin: 0 auto;
+	padding: 0;
 }
 ul.prof li a:link, a:visited{
 	
 	
 	display: block;
+	color: white;
 	margin: 8px auto;
 	padding:5px;
 	position:relative;
