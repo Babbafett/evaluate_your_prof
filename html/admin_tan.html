@@ -25,7 +25,7 @@
 						<a href="overview.html?view=rate"> rate</a>
 					</li>
 					<li>
-						<a href="#"> admIN</a>
+						<a href="admin.html"> admIN</a>
 					</li>
 
 				</ul>
@@ -35,32 +35,7 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<form name="generateTAN" action="select.htm">
-						<p>
-							Dozent: 
-						</p>
-							<select name="prof" size="1" style="width: 215px">
-								<option>Prof. Dr. Manfred Meyer</option>
-								<option>Prof. Dr. Christian Kruse</option>
-							</select>
-							<br>
-						<p>
-							Kurs: 
-						</p>
-							<select name="couse" size="1" style="width: 215px">
-								<option>Projektmanagement 2</option>
-								<option>Internet Basistechnologien</option>
-							</select>
-							<br>	
-						<p>		
-							Anzahl TANs: 
-						</p>
-							<input name="tans" type="text" size="30" maxlength="3">
-							<br>
-						<label>
-							<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
-						</label>
-					</form>
+					<?php require_once('../php/getAdminTan.php'); ?>
 				</div>
 
 			</div>

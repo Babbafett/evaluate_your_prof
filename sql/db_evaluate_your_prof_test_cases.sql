@@ -20,3 +20,7 @@ Insert into t_course(c_name,c_credits,c_university,c_token) values('c_test_name3
 Insert into t_prof(p_lastname,p_forname,p_token, p_title) values('Siggi','Jan','tr','Dr.re.nat');
 Insert into t_prof_course(c_id,p_id) values(3,3);
 Insert into t_evaluation(e_course,e_prof,e_overall,e_contentual,e_eloquence,e_motivation_prof,e_motivation_before,e_motivation_after,e_test_requirement,e_media_usage,e_soft_skills,e_hot,e_comment_positive,e_comment_negative,e_comment, e_competence) values(1,3,1,1,1,1,1,1,1,1,1,2,'test_positive','test_negative','test',1);
+
+use db_evaluate_your_prof_auth;
+
+Insert into t_auth(a_username, a_password) values('test', 'test');

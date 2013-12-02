@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="../css/style_admin_prof.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_admin.css"/>
 		<title>New Web Project</title>
 	</head>
 	<body>
@@ -35,32 +35,8 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<form name="newProf" action="select.htm">
-						<p>
-							Titel
-						</p>
-							<select name="title" size="1" style="width: 215px">
-								<option></option>
-								<option>Dr.</option>
-								<option>Prof. Dr.</option>
-							</select>
-							<br>
-						<p>		
-							Vorname:
-						</p>
-							<input name="forename" type="text" size="30" maxlength="40">
-							<br>
-						<p>	
-							Nachname: 
-						</p>	
-							<input name="lastname" type="text" size="30" maxlength="2">
-							<br>
-						<label>
-							<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
-						</label>
-					</form>
+					<?php require_once("../php/getAdmin.php"); ?>
 				</div>
-
 			</div>
 
 		</div>

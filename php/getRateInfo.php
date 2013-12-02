@@ -7,6 +7,7 @@ if (isset($_GET["course"]) == TRUE and isset($_GET["prof"]) == TRUE and isset($_
 	if (isset($_SESSION["Insert"])) {
 		if ($_SESSION["Insert"] == 0) {
 			echo "<script type =text/javascript> alert('TAN was already used or wrong TAN, please use a right TAN'); </script>";
+			session_destroy();
 		}
 	}
 	require_once('getConnection.php');
