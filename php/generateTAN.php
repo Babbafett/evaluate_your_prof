@@ -60,6 +60,8 @@ if (isset($_POST['generate_tan_y']) == TRUE and isset($_POST['generate_tan_x']) 
 		} while ($pruef);
 		$tan[] = $tan_pruef;
 	}
+	echo "<h1>Generated TANs</h1>";
+	echo "\n";
 	foreach ($tan as $t) {
 		$stmt = $connect -> stmt_init();
 		$query = "INSERT into t_tan(t_course, t_prof,t_tan) VALUES(?,?,?)";
@@ -73,10 +75,13 @@ if (isset($_POST['generate_tan_y']) == TRUE and isset($_POST['generate_tan_x']) 
 			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
 		}
 		$stmt -> close();
-		echo $t;
+		echo '<p>'.$t.'</p>';
 		echo "\n";
 
 	}
+	unset($_POST);
+	echo '<a href="admin_tan.html"><img src="../images/buttons/button_submit.jpg" alt="back" id="button" width = 300 height = 200/></a>';
+	echo "\n";
 
 	mysqli_close($connect);
 
