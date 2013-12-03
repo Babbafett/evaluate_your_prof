@@ -162,7 +162,6 @@ ul.prof{
 }
 ul.prof li a:link, a:visited{
 	
-	
 	display: block;
 	color: white;
 	margin: 8px auto;
@@ -182,6 +181,9 @@ ul.prof li a:link, a:visited{
 }
 ul.prof li a:hover {
 	 color:black; text-decoration:none; 
+}
+ul.prof li	a:visited{
+	color: black; text-decoration:none;
 }
 
 
