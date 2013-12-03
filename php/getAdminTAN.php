@@ -23,10 +23,11 @@ if (isset($_POST)) {
 			$auth = $row;
 		}
 		$stmt -> close();
-		if ($_POST['password'] == $auth['a_password']) {
+		$password = $auth['a_password'];
+		if ($password == hash('sha256', $_POST['password'])) {
 			$_SESSION['Login'] = 1;
-
 		}
+
 	}
 
 }

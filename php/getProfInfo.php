@@ -185,7 +185,7 @@ if (isset($_GET["prof"])) {
 	if (!empty($course)) {
 		echo '<h3> Courses </h3>';
 		echo "\n";
-		echo '<ul>';
+		echo '<ul class="Comment">';
 		echo "\n";
 		foreach ($course as $p) {
 			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['u_name'].' '.$p['c_name'].' '.$p['c_credits']. ' CP' . "</a></li>";
@@ -196,7 +196,7 @@ if (isset($_GET["prof"])) {
 
 		echo '<h3> random positive Comment </h3>';
 		echo "\n";
-		echo "<ul>";
+		echo '<ul class="Comment">';
 		echo "\n";
 		$random = rand(0, ($count - 1));
 		unset($prof);
@@ -223,13 +223,13 @@ if (isset($_GET["prof"])) {
 		for ($i=0; $i <= $random ; $i++) {
 			$prof_list = $prof[$i];
 		}
-		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
+		echo '<li><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 
 		echo '<h3> random negative Comment </h3>';
 		echo "\n";
-		echo "<ul>";
+		echo '<ul class="Comment">';
 		echo "\n";
 		$random = rand(0, ($count - 1));
 		unset($prof);
@@ -255,13 +255,13 @@ if (isset($_GET["prof"])) {
 		for ($i=0; $i <= $random ; $i++) { 
 			$prof_list = $prof[$i];
 		}
-		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
+		echo '<li><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 
 		echo '<h3> random Comment </h3>';
 		echo "\n";
-		echo "<ul>";
+		echo '<ul class="Comment">';
 		echo "\n";
 		$random = rand(0, ($count - 1));
 		unset($prof);
@@ -288,7 +288,7 @@ if (isset($_GET["prof"])) {
 			$prof_list = $prof[$i];
 		}
 			
-		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
+		echo '<li><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 	}
