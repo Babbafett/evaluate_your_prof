@@ -2,7 +2,7 @@
 if (isset($_GET["prof"])) {
 	require_once ('getConnection.php');
 	$stmt = $connect -> stmt_init();
-	$query = 'SELECT e_prof, AVG(e_hot) AS hot, AVG(e_overall) AS overall, AVG(e_contentual) AS contentual,AVG(e_competence) AS competence,AVG(e_eloquence) AS eloquence,AVG(e_motivation_prof) AS motivation_prof,AVG(e_motivation_before) AS motivation_before,AVG(e_motivation_after) AS motivation_after, AVG(e_test_requirement) AS test_requirements, AVG(e_media_usage) AS media_usage,AVG(e_soft_skills) AS soft_skills FROM t_evaluation WHERE e_prof = ? GROUP BY e_prof';
+	$query = 'SELECT e_prof, AVG(e_hot) AS hot, AVG(e_overall) AS overall, AVG(e_contentual) AS contentual,AVG(e_competence) AS competence,AVG(e_eloquence) AS eloquence,AVG(e_motivation_prof) AS motivation_prof,AVG(e_motivation_before) AS motivation_before,AVG(e_motivation_after) AS motivation_after, AVG(e_test_requirement) AS test_requirements, AVG(e_media_usage) AS media_usage,AVG(e_soft_skills) AS soft_skills,( (avg(e_overall) + avg(e_contentual) + avg(e_competence) + avg(e_eloquence) + avg(e_motivation_prof) + avg(e_test_requirement) + avg(e_media_usage) + avg(e_soft_skills))/8) as overall_all FROM t_evaluation WHERE e_prof = ? GROUP BY e_prof';
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
@@ -63,7 +63,7 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo 'var chart = new Chart(ctx).Radar(data,options);';
 		echo "\n";
-		getGradeImage($prof['overall']);
+		getGradeImage($prof['overall_all']);
 		echo '</script>';
 		echo "\n";
 	} else {
