@@ -51,7 +51,7 @@ if (isset($_SESSION['Login'])) {
 			$stmt -> close();
 			echo "<h1>Add Course</h1>";
 			echo "\n";
-			echo '<form name="add_prof" action="admin_prof.html" method="POST">';
+			echo '<form name="add_prof" action="admin_course.html" method="POST">';
 			echo "\n";
 			echo "<h2>title</h2>";
 			echo "\n";
@@ -83,7 +83,7 @@ if (isset($_SESSION['Login'])) {
 		}
 	} else {
 		if ($_SESSION['Login'] == 1) {
-			require_once ('addProf.php');
+			require_once ('addCourse.php');
 		}
 	}
 

@@ -34,6 +34,6 @@ if (isset($_GET["course"]) == TRUE and isset($_GET["prof"]) == TRUE and isset($_
 	$stmt -> close();
 	echo "<h1 name ='prof_name'>" . $header["p_title"] . " " . $header["p_forname"] . " " . $header["p_lastname"] . "</h1>";
 	echo "\n";
-	echo "<h2 name ='courses'>" . $header["u_name"] . " " . $header["c_name"] . " " . $header["c_credits"] . "</h2>";
+	echo "<h2 name ='courses'>" . $header["u_name"] . " " . $header["c_name"] . " " . $header["c_credits"] . ' CP' . "</h2>";
 }
 ?>

@@ -18,7 +18,7 @@ while ($row = $result -> fetch_array(MYSQLI_NUM)) {
 $stmt -> close();
 $stmt = $connect -> stmt_init();
 //$query = 'SELECT avg(e_overall) as overall, p_title, p_forname, p_lastname, e_prof, e_course, u_id FROM t_evaluation INNER JOIN t_prof on e_prof = p_id INNER JOIN t_course on e_course = c_id INNER JOIN t_university on c_university = u_id group by p_title, p_forname, p_lastname order by overall desc';
-$query = 'SELECT avg(e_overall) as overall, avg(e_contentual) as contentual,avg(e_competence) as competence, avg(e_eloquence) as eloquence, avg(e_motivation_prof) as motivation_prof, avg(e_test_requirement) as test_requirements, avg(e_hot) as hot, avg(e_soft_skills) as soft_skills, avg(e_media_usage) as media_usage, p_title, p_forname, p_lastname FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by overall desc limit 3';
+$query = 'SELECT avg(e_overall) as overall, avg(e_contentual) as contentual,avg(e_competence) as competence, avg(e_eloquence) as eloquence, avg(e_motivation_prof) as motivation_prof, avg(e_test_requirement) as test_requirements, avg(e_hot) as hot, avg(e_soft_skills) as soft_skills, avg(e_media_usage) as media_usage, p_title, p_forname, p_lastname FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by overall desc';
 if (!($stmt -> prepare($query))) {
 	echo "Prepare failed: " . $connect -> errno . $connect -> error;
 }
@@ -32,7 +32,19 @@ while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
 	$prof[] = $row;
 }
 $stmt -> close();
-
+foreach ($prof as $p) {
+	$count_crit += $p['overall'];
+	$count_crit += $p['contentual'];
+	$count_crit += $p['competence'];
+	$count_crit += $p['eloquence'];
+	$count_crit += $p['motivation_prof'];
+	$count_crit += $p['test_requirements'];
+	$count_crit += $p['soft_skills'];
+	$count_crit += $p['media_usage'];
+	$count_crit /= 8;
+	$top[] = $count_crit;
+}
+arsort($top);
 echo '<script type="text/javascript">';
 echo "\n";
 echo 'var data = {';
@@ -108,8 +120,8 @@ echo "\n";
 unset($prof);
 
 $stmt = $connect -> stmt_init();
-//$query = 'SELECT avg(e_overall) as overall, p_title, p_forname, p_lastname, e_prof, e_course, u_id FROM t_evaluation INNER JOIN t_prof on e_prof = p_id INNER JOIN t_course on e_course = c_id INNER JOIN t_university on c_university = u_id group by p_title, p_forname, p_lastname order by overall desc';
-$query = 'SELECT avg(e_overall) as overall, count(e_id) as count, p_title, p_forname, p_lastname FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by overall, count desc limit 3';
+
+$query = 'SELECT avg(e_overall) as overall, count(e_id) as count, p_title, p_forname, p_lastname FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by overall desc limit 3';
 if (!($stmt -> prepare($query))) {
 	echo "Prepare failed: " . $connect -> errno . $connect -> error;
 }
