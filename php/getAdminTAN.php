@@ -111,7 +111,7 @@ if (isset($_SESSION['Login'])) {
 		require_once ('../php/generateTAN.php');
 	}
 } else {
-	echo '<form action="admin.html" method="POST">';
+	echo '<form id="login" action="admin.html" method="POST">';
 	echo "\n";
 	echo "<p>Username:</p>";
 	echo "\n";
