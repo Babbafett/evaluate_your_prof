@@ -200,7 +200,7 @@ ul.rate_2 {
 }
 
 ul.rate_2 li a:link, a:visited {
-	color:white;
+	color: white;
 	display: block;
 	margin: 8px auto;
 	padding: 5px;
@@ -227,6 +227,9 @@ h2 {
 	font-family: bad_content_font;
 	font-size: 20px;
 }
+p {
+	font-family: cursive;
+}
 footer {
 	overflow: hidden;
 	height: 30px;
@@ -237,3 +240,6 @@ footer {
 	border-bottom-right-radius: 15px;
 }
 
+form#login {
+	margin-top: 150px;
+}

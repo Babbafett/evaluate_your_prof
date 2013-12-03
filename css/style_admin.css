@@ -170,4 +170,9 @@ footer {
 a.button img {
 	margin-top: 15%;
 }
-
+p{
+	font-family:cursive;
+}
+form#login{
+	margin-top: 150px;
+}

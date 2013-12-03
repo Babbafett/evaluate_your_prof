@@ -41,13 +41,13 @@ if (isset($_SESSION['Login'])) {
 
 	}
 } else {
-	echo '<form action="admin.html" method="POST">';
+	echo '<form id="login" action="admin.html" method="POST">';
 	echo "\n";
-	echo "<p>Username</p>";
+	echo "<p>Username:</p>";
 	echo "\n";
 	echo '<input name="username" type="text" size="30" maxlength="30">';
 	echo "\n";
-	echo "<p>Password</p>";
+	echo "<p>Password:</p>";
 	echo "\n";
 	echo '<input name="password" type="password" size="30" maxlength="30">';
 	echo "\n";

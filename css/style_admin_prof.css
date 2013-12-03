@@ -168,11 +168,14 @@ input[type = 'image'] {
 h1 {
 	font-family: bad_font;
 	font-size: 50px;
-	margin-bottom:50px;
+	margin-bottom: 50px;
 }
 h2 {
 	font-family: bad_content_font;
 	font-size: 20px;
+}
+p {
+	font-family: cursive;
 }
 
 footer {
@@ -184,4 +187,6 @@ footer {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
-
+form#login {
+	margin-top: 150px;
+}
