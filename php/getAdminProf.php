@@ -33,6 +33,8 @@ if (isset($_POST)) {
 if (isset($_SESSION['Login'])) {
 	if (isset($_POST['add_prof_y']) == FALSE and isset($_POST['add_prof_x']) == FALSE) {
 		if ($_SESSION['Login'] == 1) {
+			echo "<h1>Add Prof</h1>";
+			echo "\n";
 			echo '<form name="add_prof" action="admin_prof.html" method="POST">';
 			echo "\n";
 			echo "<h2>title</h2>";

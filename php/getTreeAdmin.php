@@ -38,12 +38,15 @@ foreach ($prof as $p) {
 	while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
 		$course[] = $row;
 	}
+	$count = 0;
 	if (!empty($course)) {
+		$count++;
 		echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . '</h2>';
 		echo "\n";
 		echo '<ul class = "rate_2">';
 		echo "\n";
 		foreach ($course as $c) {
+			$count++;
 			echo "<li><a href='admin_tan.html?course=" . $c["c_id"] . "&prof=" . $p["p_id"] . "&university=" . $c["c_university"] . "'>" . $c["u_name"] . " " . $c["c_name"] . " " . $c["c_credits"] . " CP" . "</a></li>";
 			echo "\n";
 		}
@@ -53,10 +56,26 @@ foreach ($prof as $p) {
 		echo "\n";
 	}
 }
+$count = 140 + ($count * 45);
 $stmt -> close();
 echo "</li>";
 echo "\n";
 
 echo "</ul>";
 echo "\n";
+echo '<script type="text/javascript">';
+echo "\n";
+echo 'if ($( ".wrapper-main" ).height() <= ' . $count . ') {';
+echo "\n";
+$count += 50;
+echo '$( ".wrapper-main" ).height("' . $count . 'px");';
+echo "\n";
+echo "}";
+echo "else{";
+echo "\n";
+echo '$( ".wrapper-main" ).height("70%");';
+echo "\n";
+echo "}";
+echo "\n";
+echo '</script>';
 ?>

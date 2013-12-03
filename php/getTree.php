@@ -26,9 +26,9 @@ if (isset($_GET['view'])) {
 		if (!($stmt -> prepare($query))) {
 			echo "Prepare failed: " . $connect -> errno . $connect -> error;
 		}
+		$count = 0;
 		foreach ($prof as $p) {
 			unset($course);
-
 			if (!($stmt -> bind_param("d", $p["p_id"]))) {
 				echo "Bind failed: " . $connect -> errno . $connect -> error;
 			}
@@ -42,11 +42,13 @@ if (isset($_GET['view'])) {
 				$course[] = $row;
 			}
 			if (!empty($course)) {
+				$count++;
 				echo "<li><h2>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . '</h2>';
 				echo "\n";
 				echo '<ul class = "rate_2">';
 				echo "\n";
 				foreach ($course as $c) {
+					$count++;
 					echo "<li><a href='rate.html?course=" . $c["c_id"] . "&prof=" . $p["p_id"] . "&university=" . $c["c_university"] . "'>" . $c["u_name"] . " " . $c["c_name"] . " " . $c["c_credits"] . " CP" . "</a></li>";
 					echo "\n";
 				}
@@ -56,6 +58,7 @@ if (isset($_GET['view'])) {
 				echo "\n";
 			}
 		}
+		$count = 140 + ($count * 45);
 		$stmt -> close();
 		echo "</li>";
 		echo "\n";
@@ -64,9 +67,12 @@ if (isset($_GET['view'])) {
 		echo "\n";
 		echo '<ul class = "prof">';
 		echo "\n";
+		$count = 0;
 		foreach ($prof as $p) {
+			$count++;
 			echo "<li class='test'><a href='prof.html?prof=" . $p["p_id"] . "'>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . "</a></li>";
 		}
+		$count = 140 + ($count * 45);
 	}
 	echo "</ul>";
 	echo "\n";
@@ -75,11 +81,35 @@ if (isset($_GET['view'])) {
 		echo "\n";
 		echo '$("link[rel=stylesheet]").attr({href: "../css/style_overview_rate.css"});';
 		echo "\n";
+		echo 'if ($( ".wrapper-main" ).height() <= ' . $count . ') {';
+		echo "\n";
+		$count += 50;
+		echo '$( ".wrapper-main" ).height("' . $count . 'px");';
+		echo "\n";
+		echo "}";
+		echo "else{";
+		echo "\n";
+		echo '$( ".wrapper-main" ).height("70%");';
+		echo "\n";
+		echo "}";
+		echo "\n";
 		echo '</script>';
 	} elseif ($_GET['view'] == 'prof') {
 		echo '<script type="text/javascript">';
 		echo "\n";
 		echo '$("link[rel=stylesheet]").attr({href: "../css/style_overview_prof.css"});';
+		echo "\n";
+		echo 'if ($( ".wrapper-main" ).height() <= ' . $count . ') {';
+		echo "\n";
+		$count += 50;
+		echo '$( ".wrapper-main" ).height("' . $count . 'px");';
+		echo "\n";
+		echo "}";
+		echo "else{";
+		echo "\n";
+		echo '$( ".wrapper-main" ).height("70%");';
+		echo "\n";
+		echo "}";
 		echo "\n";
 		echo '</script>';
 	}

@@ -35,34 +35,7 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<form name="newCourse" action="select.htm">
-						<p>
-							lecturer:
-						</p>
-						<select name="profSelect" size="1" style="width: 215px">
-							<option>Prof. Dr.Manfred Meyer</option>
-							<option>Prof. Dr. Ralf Marquardt</option>
-						</select>
-						<br>
-						<p>
-							course:
-						</p>
-						<input name="course" type="text" size="30" maxlength="40">
-						<br>
-						<p>
-							credit points:
-						</p>
-						<input name="cp" type="text" size="30" maxlength="2">
-						<br>
-						<p>
-							university:
-						</p>
-						<input name="uni" type="text" size="30" maxlength="40">
-						<br>
-						<label>
-							<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">
-						</label>
-					</form>
+					<?php require_once('../php/getAdminCourse.php'); ?>
 				</div>
 
 			</div>

@@ -161,6 +161,19 @@ div.content {
 	line-height: 0em;
 }
 
+input[type = 'image'] {
+	display: block;
+	margin: 0 auto;
+}
+h1 {
+	font-family: bad_font;
+	font-size: 50px;
+}
+h2 {
+	font-family: bad_content_font;
+	font-size: 20px;
+}
+
 footer {
 	overflow: hidden;
 	height: 30px;
