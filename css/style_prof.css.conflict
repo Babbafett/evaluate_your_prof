@@ -204,6 +204,48 @@ h3 {
 	font-size: 40px;
 }
 
+<<<<<<< HEAD
+p{	
+	font-family:cursive;
+	font-size:15px;	
+}
+
+ul.Comment{
+	list-style-type:none;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+ul.Comment li a:link, a:visited{
+	
+	display: block;
+	color: white;
+	margin: 8px auto;
+	padding:5px;
+	position:relative;
+	width:80%;
+	height:100%;
+	border:none;
+	font-family:cursive;
+	font-size:20px;
+	list-style-type: none;
+	background: -webkit-linear-gradient(left, #0F5B0B, #7BB918);
+	text-decoration: none;
+	border-radius: 15px;
+	
+		
+}
+ul.Comment li a:hover {
+	 color:black; text-decoration:none; 
+}
+ul.Comment li	a:visited{
+	color: black; text-decoration:none;
+}
+
+/*
+ul{
+	list-style-type:none;
+=======
 p {
 	font-family: cursive;
 }
@@ -220,6 +262,7 @@ ul.comment {
 	display: block;
 	margin: 0 auto;
 	padding: 0;
+>>>>>>> fe3498fcc544293778b16f2db1c81bba6f119369
 }
 
 ul.comment li p {
@@ -267,11 +310,15 @@ ul.course li a:link, a:visited {
 	text-decoration: none;
 	border-radius: 15px;
 }
+<<<<<<< HEAD
+*/
+=======
 
 ul.course li a:hover {
 	color: black;
 	text-decoration: none;
 }
+>>>>>>> fe3498fcc544293778b16f2db1c81bba6f119369
 
 footer {
 	overflow: hidden;
@@ -282,3 +329,4 @@ footer {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
+
