@@ -168,6 +168,7 @@ input[type = 'image'] {
 h1 {
 	font-family: bad_font;
 	font-size: 50px;
+	margin-bottom:50px;
 }
 h2 {
 	font-family: bad_content_font;

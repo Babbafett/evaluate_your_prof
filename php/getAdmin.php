@@ -31,11 +31,11 @@ if (isset($_POST)) {
 }
 if (isset($_SESSION['Login'])) {
 	if ($_SESSION['Login'] == 1) {
-		echo '<a href="admin_tan.html"><img src="../images/buttons/button_submit.jpg" alt="tan_generate" id="button" width = 300 height = 200/></a>';
+		echo '<a class = "button" href="admin_tan.html"><img src="../images/buttons/button_submit.jpg" alt="tan_generate" id="button" width = 300 height = 200/></a>';
 		echo "\n";
-		echo '<a href="admin_prof.html"><img src="../images/buttons/button_submit.jpg" alt="admin_prof" id="button" width = 300 height = 200/></a>';
+		echo '<a class = "button" href="admin_prof.html"><img src="../images/buttons/button_submit.jpg" alt="admin_prof" id="button" width = 300 height = 200/></a>';
 		echo "\n";
-		echo '<a href="admin_course.html"><img src="../images/buttons/button_submit.jpg" alt="admin_course" id="button" width = 300 height = 200/></a>';
+		echo '<a class = "button" href="admin_course.html"><img src="../images/buttons/button_submit.jpg" alt="admin_course" id="button" width = 300 height = 200/></a>';
 		echo "\n";
 	} else {
 

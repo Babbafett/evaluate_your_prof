@@ -154,8 +154,8 @@ div.content {
 	height: 100%;
 }
 
-input[type = 'image']{
-	display:block;
+input[type = 'image'] {
+	display: block;
 	margin: 0 auto;
 }
 footer {
@@ -166,5 +166,8 @@ footer {
 	border: 1px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
+}
+a.button img {
+	margin-top: 15%;
 }
 
