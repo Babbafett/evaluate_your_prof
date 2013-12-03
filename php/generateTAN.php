@@ -59,7 +59,7 @@ for ($i = 1; $i <= $_POST['count_tan']; $i++) {
 	} while ($pruef);
 	$tan[] = $tan_pruef;
 }
-echo "<h1>Generated TANs</h1>";
+echo "<h1>generated TANs</h1>";
 echo "\n";
 foreach ($tan as $t) {
 	$stmt = $connect -> stmt_init();
