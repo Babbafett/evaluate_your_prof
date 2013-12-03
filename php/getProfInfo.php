@@ -136,7 +136,7 @@ if (isset($_GET["prof"])) {
 
 	echo '<p> Ratings in Total:</p>';
 	echo "\n";
-	echo '<p>' . $prof['count'] . '</p>';
+	echo '<p>' . $count . '</p>';
 	echo "\n";
 	echo '<br></br>';
 	echo "\n";
@@ -188,7 +188,7 @@ if (isset($_GET["prof"])) {
 		echo '<ul>';
 		echo "\n";
 		foreach ($course as $p) {
-			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['c_name'] . "</a></li>";
+			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['u_name'].' '.$p['c_name'].' '.$p['c_credits']. ' CP' . "</a></li>";
 		}
 		echo "\n";
 		echo '</ul>';
@@ -198,14 +198,15 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo "<ul>";
 		echo "\n";
-		$random = rand(1, $count);
+		$random = rand(0, ($count - 1));
 		unset($prof);
+		unset($prof_list);
 		$stmt = $connect -> stmt_init();
-		$query = 'SELECT e_comment_positive FROM t_evaluation WHERE e_id = ?';
+		$query = 'SELECT e_comment_positive FROM t_evaluation WHERE e_prof = ?';
 		if (!($stmt -> prepare($query))) {
 			echo "Prepare failed: " . $connect -> errno . $connect -> error;
 		}
-		if (!($stmt -> bind_param("d", $random))) {
+		if (!($stmt -> bind_param("d", $_GET["prof"]))) {
 			echo "Bind failed: " . $connect -> errno . $connect -> error;
 		}
 		if (!$stmt -> execute()) {
@@ -214,11 +215,15 @@ if (isset($_GET["prof"])) {
 		if (!($result = $stmt -> get_result())) {
 			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
 		}
-		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-			$prof = $row;
+		while ($row = $result -> fetch_assoc()) {
+			$prof[] = $row['e_comment_positive'];
 		}
 		$stmt -> close();
-		echo '<li class="Comment">' . $prof['e_comment_positive'] . "</li>";
+		
+		for ($i=0; $i <= $random ; $i++) {
+			$prof_list = $prof[$i];
+		}
+		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 
@@ -226,14 +231,15 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo "<ul>";
 		echo "\n";
-		$random = rand(1, $count);
+		$random = rand(0, ($count - 1));
 		unset($prof);
+		unset($prof_list);
 		$stmt = $connect -> stmt_init();
-		$query = 'SELECT e_comment_negative FROM t_evaluation WHERE e_id = ?';
+		$query = 'SELECT e_comment_negative FROM t_evaluation WHERE e_prof = ?';
 		if (!($stmt -> prepare($query))) {
 			echo "Prepare failed: " . $connect -> errno . $connect -> error;
 		}
-		if (!($stmt -> bind_param("d", $random))) {
+		if (!($stmt -> bind_param("d", $_GET["prof"]))) {
 			echo "Bind failed: " . $connect -> errno . $connect -> error;
 		}
 		if (!$stmt -> execute()) {
@@ -242,11 +248,14 @@ if (isset($_GET["prof"])) {
 		if (!($result = $stmt -> get_result())) {
 			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
 		}
-		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-			$prof = $row;
+		while ($row = $result -> fetch_assoc()) {
+			$prof[] = $row['e_comment_negative'];
 		}
 		$stmt -> close();
-		echo '<li class="Comment">' . $prof['e_comment_negative'] . "</li>";
+		for ($i=0; $i <= $random ; $i++) { 
+			$prof_list = $prof[$i];
+		}
+		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 
@@ -254,14 +263,15 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo "<ul>";
 		echo "\n";
-		$random = rand(1, $count);
+		$random = rand(0, ($count - 1));
 		unset($prof);
+		unset($prof_list);
 		$stmt = $connect -> stmt_init();
-		$query = 'SELECT e_comment FROM t_evaluation WHERE e_id = ?';
+		$query = 'SELECT e_comment FROM t_evaluation WHERE e_prof = ?';
 		if (!($stmt -> prepare($query))) {
 			echo "Prepare failed: " . $connect -> errno . $connect -> error;
 		}
-		if (!($stmt -> bind_param("d", $random))) {
+		if (!($stmt -> bind_param("d", $_GET["prof"]))) {
 			echo "Bind failed: " . $connect -> errno . $connect -> error;
 		}
 		if (!$stmt -> execute()) {
@@ -270,11 +280,15 @@ if (isset($_GET["prof"])) {
 		if (!($result = $stmt -> get_result())) {
 			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
 		}
-		while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-			$prof = $row;
+		while ($row = $result -> fetch_assoc()) {
+			$prof[] = $row['e_comment'];
 		}
 		$stmt -> close();
-		echo '<li class="Comment">' . $prof['e_comment'] . "</li>";
+		for ($i=0; $i <= $random ; $i++) { 
+			$prof_list = $prof[$i];
+		}
+			
+		echo '<li class="Comment"><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
 	}
