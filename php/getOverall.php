@@ -168,22 +168,8 @@ echo "\n";
 echo '</script>';
 echo "\n";
 unset($prof);
-$stmt=$connect->stmt_init();
-$query='select avg(e_hot) as hot, p_title, p_forname, p_lastname, p_id FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by hot desc';
-if(!($stmt->prepare($query))) {
-echo "Prepare failed: ".$connect->errno.$connect->error;
-}
-if(!$stmt->execute()) {
-echo "Execute failed: (".$connect->errno.") ".$connect->error;
-}
-if(!($result=$stmt->get_result())) {
-echo "Result failed: (".$connect->errno.") ".$connect->error;
-}
-while($row=$result->fetch_array(MYSQLI_NUM)) {
-$prof[]=$row;
-}
-/*$stmt = $connect -> stmt_init();
- $query = 'select e_prof as prof ,( select count(e_hot) from t_evaluation where e_hot = 1 and e_prof = prof group by e_prof ) as count_hot, ( select count(e_hot) from t_evaluation where e_hot = 2 and e_prof = prof group by e_prof ) as count_not, (( select count(e_hot) from t_evaluation where e_hot = 1 and e_prof = prof group by e_prof )+( select count(e_hot) from t_evaluation where e_hot = 2 and e_prof = prof group by e_prof )) as count from t_evaluation group by prof';
+$stmt = $connect -> stmt_init();
+ $query = 'select p_title, p_forname, p_lastname, e_prof as prof ,( select count(e_hot) from t_evaluation where e_hot = 1 and e_prof = prof group by e_prof ) as count_hot, ( select count(e_hot) from t_evaluation where e_hot = 2 and e_prof = prof group by e_prof ) as count_not, round((( select count(e_hot) from t_evaluation where e_hot = 1 and e_prof = prof group by e_prof ) * (100/(select count(e_id) from t_evaluation where e_prof = prof))),0) as hot from t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname, prof order by hot desc;';
  if (!($stmt -> prepare($query))) {
  echo "Prepare failed: " . $connect -> errno . $connect -> error;
  }
@@ -194,15 +180,14 @@ $prof[]=$row;
  echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
  }
  while ($row = $result -> fetch_array(MYSQLI_NUM)) {
- $hot[] = $row;
+ $prof[] = $row;
  }
  $stmt -> close();
- */
 echo '<script type="text/javascript">';
 echo "\n";
 echo 'var data = {';
 echo "\n";
-echo 'labels : ["'.$prof[0][1].' '.$prof[0][2].' '.$prof[0][3].'","'.$prof[1][1].' '.$prof[1][2].' '.$prof[1][3].'","'.$prof[2][1].' '.$prof[2][2].' '.$prof[2][3].'"],';
+echo 'labels : ["'.$prof[0][0].' '.$prof[0][1].' '.$prof[0][2].'","'.$prof[1][0].' '.$prof[1][1].' '.$prof[1][2].'","'.$prof[2][0].' '.$prof[2][1].' '.$prof[2][2].'"],';
 echo "\n";
 echo 'datasets : [';
 echo "\n";
@@ -212,7 +197,7 @@ echo 'fillColor : "rgba(151,187,205,0.5)",';
 echo "\n";
 echo 'strokeColor : "rgba(151,187,205,1)",';
 echo "\n";
-echo 'data : ['.$prof[0][0].','.$prof[1][0].','.$prof[2][0].']';
+echo 'data : ['.$prof[0][6].','.$prof[1][6].','.$prof[2][6].']';
 echo "\n";
 echo '}';
 echo "\n";
@@ -226,9 +211,9 @@ echo 'var options = {';
 echo "\n";
 echo 'scaleOverride : true,';
 echo "\n";
-echo 'scaleSteps : 7,';
+echo 'scaleSteps : 10,';
 echo "\n";
-echo 'scaleStepWidth : 1,';
+echo 'scaleStepWidth : 10,';
 echo "\n";
 echo 'scaleStartValue : 0';
 echo "\n";
