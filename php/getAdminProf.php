@@ -67,7 +67,7 @@ if (isset($_SESSION['Login'])) {
 			echo "\n";
 			echo '<input required name="lastname" type="text" size="30" maxlength="30">';
 			echo "\n";
-			echo '<input type="image" name="add_prof" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">';
+			echo '<input type="image" name="add_prof" src="../images/buttons/button_add.jpg" alt="submit" id="button" width="250" height="100">';
 			echo "\n";
 			echo '</form>';
 			echo "\n";
@@ -80,18 +80,6 @@ if (isset($_SESSION['Login'])) {
 	}
 
 } else {
-	echo '<form id="login" action="admin.html" method="POST">';
-	echo "\n";
-	echo "<p>Username:</p>";
-	echo "\n";
-	echo '<input name="username" type="text" size="30" maxlength="30">';
-	echo "\n";
-	echo "<p>Password:</p>";
-	echo "\n";
-	echo '<input name="password" type="password" size="30" maxlength="30">';
-	echo "\n";
-	echo '<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">';
-	echo "\n";
-	echo "</form>";
+	echo '<p id="login">please Login on Admin Site first</p>';
 }
 ?>

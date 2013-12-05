@@ -21,6 +21,6 @@ echo "<h1>added Prof</h1>";
 echo "\n";
 echo '<p>' . $_POST['title'] . ' ' . $_POST['forname'] . ' ' . $_POST['lastname'] . '</p>';
 echo "\n";
-echo '<a href="admin_prof.html"><img src="../images/buttons/button_submit.jpg" alt="back" id="button" width = 300 height = 200/></a>';
+echo '<a href="admin_prof.html"><img src="../images/buttons/button_back.jpg" alt="back" id="button" width = 300 height = 150/></a>';
 echo "\n";
 ?>

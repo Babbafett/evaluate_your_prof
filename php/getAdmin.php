@@ -23,20 +23,28 @@ if (isset($_POST)) {
 			$auth = $row;
 		}
 		$stmt -> close();
-		$password = $auth['a_password'];
-		if ($password == hash('sha256', $_POST['password'])) {
-			$_SESSION['Login'] = 1;
+		if (!empty($auth)) {
+			$password = $auth['a_password'];
+			if ($password == hash('sha256', $_POST['password'])) {
+				$_SESSION['Login'] = 1;
+			}
 		}
 	}
 }
 if (isset($_SESSION['Login'])) {
 	if ($_SESSION['Login'] == 1) {
-		echo '<a class = "button" href="admin_tan.html"><img src="../images/buttons/button_submit.jpg" alt="tan_generate" id="button" width = 300 height = 200/></a>';
+		require_once("../php/logout.php");
+		echo '<a class = "button" href="admin_tan.html"><img src="../images/buttons/button_tan.jpg" alt="tan_generate" id="button" width = 300 height = 150/></a>';
 		echo "\n";
-		echo '<a class = "button" href="admin_prof.html"><img src="../images/buttons/button_submit.jpg" alt="admin_prof" id="button" width = 300 height = 200/></a>';
+		echo '<a class = "button" href="admin_prof.html"><img src="../images/buttons/button_add_prof.jpg" alt="admin_prof" id="button" width = 300 height = 150/></a>';
 		echo "\n";
-		echo '<a class = "button" href="admin_course.html"><img src="../images/buttons/button_submit.jpg" alt="admin_course" id="button" width = 300 height = 200/></a>';
+		echo '<a class = "button" href="admin_course.html"><img src="../images/buttons/button_add_course.jpg" alt="admin_course" id="button" width = 300 height = 150/></a>';
 		echo "\n";
+		echo '<form id="login" action="admin.html" method="POST">';
+		echo "\n";
+		echo '<input type="image" name="logout" src="../images/buttons/button_logout.jpg" alt="submit" id="button" width="250" height="100">';
+		echo "\n";
+		echo "</form>";
 	} else {
 
 	}
@@ -51,7 +59,7 @@ if (isset($_SESSION['Login'])) {
 	echo "\n";
 	echo '<input name="password" type="password" size="30" maxlength="30">';
 	echo "\n";
-	echo '<input type="image" name="insert_rate" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">';
+	echo '<input type="image" name="login" id="login" src="../images/buttons/button_login.jpg" alt="submit" id="button" width="250" height="100">';
 	echo "\n";
 	echo "</form>";
 }

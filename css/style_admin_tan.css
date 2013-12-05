@@ -160,6 +160,7 @@ div.content {
 input[type = 'image'] {
 	display: block;
 	margin: 0 auto;
+	margin-top:10px;
 }
 
 ul.rate_1 {

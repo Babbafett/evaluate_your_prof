@@ -52,10 +52,15 @@ while ($row = $result -> fetch_array(MYSQLI_NUM)) {
 	$generated_tans[] = $row[0];
 }
 $stmt -> close();
+
 for ($i = 1; $i <= $_POST['count_tan']; $i++) {
 	do {
 		$tan_pruef = generate($prof_token, $course_token);
-		$pruef = in_array($tan_pruef, $generated_tans);
+		if (!empty($generated_tans)) {
+			$pruef = in_array($tan_pruef, $generated_tans);
+		} else {
+			$pruef = false;
+		}
 	} while ($pruef);
 	$tan[] = $tan_pruef;
 }
@@ -79,7 +84,7 @@ foreach ($tan as $t) {
 
 }
 unset($_POST);
-echo '<a href="admin_tan.html"><img src="../images/buttons/button_submit.jpg" alt="back" id="button" width = 300 height = 200/></a>';
+echo '<a href="admin_tan.html"><img src="../images/buttons/button_back.jpg" alt="back" id="button" width = 300 height = 150/></a>';
 echo "\n";
 
 mysqli_close($connect);

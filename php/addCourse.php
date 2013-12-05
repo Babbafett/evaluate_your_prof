@@ -57,7 +57,7 @@ $query = "SELECT c_id FROM t_course where c_name = ? and c_credits = ?";
 if (!($stmt -> prepare($query))) {
 	echo "Prepare failed: " . $connect -> errno . $connect -> error;
 }
-if (!($stmt -> bind_param("ss", $_POST["course_name"],$_POST["cp"]))) {
+if (!($stmt -> bind_param("ss", $_POST["course_name"], $_POST["cp"]))) {
 	echo "Bind failed: " . $connect -> errno . $connect -> error;
 }
 if (!$stmt -> execute()) {
@@ -145,6 +145,6 @@ echo "<h2> for Prof</h2>";
 echo "\n";
 echo '<p>' . $prof['p_title'] . ' ' . $prof['p_forname'] . ' ' . $prof['p_lastname'] . '</p>';
 echo "\n";
-echo '<a href="admin_course.html"><img src="../images/buttons/button_submit.jpg" alt="back" id="button" width = 300 height = 200/></a>';
+echo '<a href="admin_course.html"><img src="../images/buttons/button_back.jpg" alt="back" id="button" width = 300 height = 150/></a>';
 echo "\n";
 ?>
