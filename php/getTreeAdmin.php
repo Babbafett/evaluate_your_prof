@@ -15,6 +15,7 @@ while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
 	$prof[] = $row;
 }
 $stmt -> close();
+if (!empty($prof)) {
 echo "<h1>Navigate your Course</h1>";
 echo "\n";
 echo '<ul class = "rate_1">';
@@ -58,6 +59,7 @@ foreach ($prof as $p) {
 }
 $count = 140 + ($count * 45);
 $stmt -> close();
+	
 echo "</li>";
 echo "\n";
 
@@ -78,4 +80,8 @@ echo "\n";
 echo "}";
 echo "\n";
 echo '</script>';
+}
+else {
+	echo "<p>no Data exists</p>";
+}
 ?>

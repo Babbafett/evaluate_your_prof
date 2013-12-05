@@ -16,6 +16,7 @@ if (isset($_GET['view'])) {
 		$prof[] = $row;
 	}
 	$stmt -> close();
+	if (!empty($prof)) {		
 	if ($_GET['view'] == 'rate') {
 		echo "<h1>Navigate your Course</h1>";
 		echo "\n";
@@ -73,7 +74,7 @@ if (isset($_GET['view'])) {
 			echo "<li class='test'><a href='prof.html?prof=" . $p["p_id"] . "'>" . $p["p_title"] . " " . $p["p_forname"] . " " . $p["p_lastname"] . "</a></li>";
 		}
 		$count = 140 + ($count * 45);
-	}
+	}	
 	echo "</ul>";
 	echo "\n";
 	if ($_GET['view'] == 'rate') {
@@ -112,6 +113,12 @@ if (isset($_GET['view'])) {
 		echo "}";
 		echo "\n";
 		echo '</script>';
+	}
+	}
+else {
+			echo "<p>no Data exists</p>";
+			echo "\n";
+	
 	}
 }
 ?>

@@ -25,6 +25,10 @@ h2 {
 	font-family: bad_content_font;
 	font-size: 20px;
 }
+p {
+	text-align:center;
+	font-family: cursive;
+}
 
 div.wrapper-head {
 	overflow: hidden;

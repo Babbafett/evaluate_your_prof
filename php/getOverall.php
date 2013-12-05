@@ -1,7 +1,6 @@
 <?php
 require_once ('getConnection.php');
 $stmt=$connect->stmt_init();
-//$query = 'SELECT avg(e_overall) as overall, p_title, p_forname, p_lastname, e_prof, e_course, u_id FROM t_evaluation INNER JOIN t_prof on e_prof = p_id INNER JOIN t_course on e_course = c_id INNER JOIN t_university on c_university = u_id group by p_title, p_forname, p_lastname order by overall desc';
 $query='SELECT count(e_id) from t_evaluation';
 if(!($stmt->prepare($query))) {
 echo "Prepare failed: ".$connect->errno.$connect->error;
@@ -15,9 +14,10 @@ echo "Result failed: (".$connect->errno.") ".$connect->error;
 while($row=$result->fetch_array(MYSQLI_NUM)) {
 $count=$row;
 }
+
+if ($count[0] != 0) {
 $stmt->close();
 $stmt=$connect->stmt_init();
-//$query = 'SELECT avg(e_overall) as overall, p_title, p_forname, p_lastname, e_prof, e_course, u_id FROM t_evaluation INNER JOIN t_prof on e_prof = p_id INNER JOIN t_course on e_course = c_id INNER JOIN t_university on c_university = u_id group by p_title, p_forname, p_lastname order by overall desc';
 $query='SELECT avg(e_overall) as overall, avg(e_contentual) as contentual,avg(e_competence) as competence, avg(e_eloquence) as eloquence, avg(e_motivation_prof) as motivation_prof, avg(e_test_requirement) as test_requirements, avg(e_hot) as hot, avg(e_soft_skills) as soft_skills, avg(e_media_usage) as media_usage,( (avg(e_overall) + avg(e_contentual) + avg(e_competence) + avg(e_eloquence) + avg(e_motivation_prof) + avg(e_test_requirement) + avg(e_media_usage) + avg(e_soft_skills))/8) as overall_all, p_title, p_forname, p_lastname FROM t_evaluation INNER JOIN t_prof on e_prof = p_id group by p_title, p_forname, p_lastname order by overall_all desc limit 3';
 if(!($stmt->prepare($query))) {
 echo "Prepare failed: ".$connect->errno.$connect->error;
@@ -679,4 +679,12 @@ echo 'var chart = new Chart(ctx).Pie(data);';
 echo "\n";
 echo '</script>';
 echo "\n";
+}
+else {
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo '$( ".content" ).replaceWith( "<p>no Data exists</p>");';
+		echo "\n";
+		echo '</script>';
+}
 ?>

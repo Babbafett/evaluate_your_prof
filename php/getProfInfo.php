@@ -196,10 +196,7 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo '</ul>';
 		echo "\n";
-		echo '<h3> random positive Comment </h3>';
-		echo "\n";
-		echo '<ul class="comment">';
-		echo "\n";
+		
 		$random = rand(0, ($count - 1));
 		unset($prof);
 		unset($prof_list);
@@ -221,7 +218,11 @@ if (isset($_GET["prof"])) {
 			$prof[] = $row['e_comment_positive'];
 		}
 		$stmt -> close();
-		
+		if (!empty($prof)) {
+			echo '<h3> random positive Comment </h3>';
+			echo "\n";
+			echo '<ul class="comment">';
+			echo "\n";
 		for ($i=0; $i <= $random ; $i++) {
 			$prof_list = $prof[$i];
 		}
@@ -293,7 +294,7 @@ if (isset($_GET["prof"])) {
 		echo '<li><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
-		
+		}
 		echo '<script type="text/javascript">';
 		echo "\n";
 		echo 'if ($( ".wrapper-main" ).height() <= ' . $count_course . ') {';
