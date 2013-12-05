@@ -37,24 +37,24 @@ while ($row = $result -> fetch_array(MYSQLI_NUM)) {
 	$prof_token = $row[0];
 }
 $stmt -> close();
-$stmt = $connect -> stmt_init();
-$query = "SELECT t_tan FROM t_tan";
-if (!($stmt -> prepare($query))) {
-	echo "Prepare failed: " . $connect -> errno . $connect -> error;
-}
-if (!$stmt -> execute()) {
-	echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
-}
-if (!($result = $stmt -> get_result())) {
-	echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
-}
-while ($row = $result -> fetch_array(MYSQLI_NUM)) {
-	$generated_tans[] = $row[0];
-}
-$stmt -> close();
 
 for ($i = 1; $i <= $_POST['count_tan']; $i++) {
 	do {
+		$stmt = $connect -> stmt_init();
+		$query = "SELECT t_tan FROM t_tan";
+		if (!($stmt -> prepare($query))) {
+			echo "Prepare failed: " . $connect -> errno . $connect -> error;
+		}
+		if (!$stmt -> execute()) {
+			echo "Execute failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		if (!($result = $stmt -> get_result())) {
+			echo "Result failed: (" . $connect -> errno . ") " . $connect -> error;
+		}
+		while ($row = $result -> fetch_array(MYSQLI_NUM)) {
+			$generated_tans[] = $row[0];
+		}
+		$stmt -> close();
 		$tan_pruef = generate($prof_token, $course_token);
 		if (!empty($generated_tans)) {
 			$pruef = in_array($tan_pruef, $generated_tans);

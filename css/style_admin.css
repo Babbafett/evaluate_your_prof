@@ -27,7 +27,7 @@ div.wrapper-head {
 div.wrapper-main {
 	overflow: hidden;
 	position: relative;
-	min-height: 600px;
+	min-height: 680px;
 	height: 70%;
 	min-width: 1160px;
 	width: 70%;
@@ -161,7 +161,7 @@ input[type = 'image'] {
 input[type = 'image']#login {
 	display: block;
 	margin: 0 auto;
-	margin-top:10px;
+	margin-top: 10px;
 }
 footer {
 	overflow: hidden;
@@ -175,9 +175,9 @@ footer {
 a.button img {
 	margin-top: 15%;
 }
-p{
-	font-family:cursive;
+p {
+	font-family: cursive;
 }
-form#login{
+form#login {
 	margin-top: 150px;
 }

@@ -12,6 +12,10 @@ html, body {
 	src: url('../fonts/bad_font.otf');
 }
 
+h1{
+	font-family: bad_font;
+}
+
 div.wrapper-head {
 	overflow: hidden;
 	position: relative;
@@ -22,6 +26,11 @@ div.wrapper-head {
 	top: 50px;
 	margin: 0 auto;
 	padding: 0;
+}
+textarea.fixed {
+	display: block;
+	margin: 0 auto;
+	resize: none;
 }
 
 div.wrapper-main {
@@ -154,6 +163,9 @@ div.content {
 	height: 100%;
 }
 
+input#button{
+	margin-top:10px;
+}
 footer {
 	overflow: hidden;
 	height: 30px;

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="../css/style_about.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_contact.css"/>
 		<title>contact</title>
 	</head>
 	<body>
@@ -35,16 +35,18 @@
 
 			<div class="wrapper-content-center">
 				<div class="content">
-					<label> <h3>&emsp; Kontakt:</h3>
+					<label> <h1>Contact</h1>
 						<form action="select.htm">
 							<p>
 								<select name="topic">
-									<option>Allgemeines</option>
-									<option>Frage(n) zur Bewertung</option>
-									<option>Technische Probleme</option>
+									<option>common</option>
+									<option>question</option>
+									<option>technical problems</option>
 								</select>
 							</p>
-						</form> 						<textarea required name="Kommentar" rows="3" maxlength="150" cols="60" ></textarea>
+							<textarea required name="comment" class="fixed" value=""rows="4" maxlength="300" cols="80" ></textarea>
+							<input type="image" name="send" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="100">
+						</form> 						
 						<br>
 					</label>
 				</div>

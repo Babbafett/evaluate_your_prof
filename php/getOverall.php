@@ -44,7 +44,6 @@ if ($count[0] != 0) {
 		echo '{';
 		echo "\n";
 		echo 'fillColor : "#69D2E7",';
-		/*rgba(151,187,205,0.5)*/
 		echo "\n";
 		echo 'strokeColor : "rgba(151,187,205,1)",';
 		echo "\n";
@@ -686,9 +685,17 @@ if ($count[0] != 0) {
 		echo '$( ".wrapper-main" ).height("70%");';
 		echo "\n";
 		echo '$( ".content" ).replaceWith( "<p>not enough Data to create Statistic</p>");';
-
 		echo "\n";
 		echo '</script>';
 	}
+
+} else {
+	echo '<script type="text/javascript">';
+	echo "\n";
+	echo '$( ".wrapper-main" ).height("70%");';
+	echo "\n";
+	echo '$( ".content" ).replaceWith( "<p>no Data exists</p>");';
+	echo "\n";
+	echo '</script>';
 }
 ?>
