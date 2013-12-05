@@ -187,6 +187,7 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo '<ul class="course">';
 		echo "\n";
+		$count_course = 0;
 		foreach ($course as $p) {
 			$count_course++;
 			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['u_name'].' '.$p['c_name'].' '.$p['c_credits']. ' CP' . "</a></li>";
@@ -195,7 +196,6 @@ if (isset($_GET["prof"])) {
 		echo "\n";
 		echo '</ul>';
 		echo "\n";
-
 		echo '<h3> random positive Comment </h3>';
 		echo "\n";
 		echo '<ul class="comment">';
