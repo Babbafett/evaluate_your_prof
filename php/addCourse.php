@@ -53,11 +53,11 @@ if (empty($uni)) {
 }
 
 $stmt = $connect -> stmt_init();
-$query = "SELECT c_id FROM t_course where c_name = ?";
+$query = "SELECT c_id FROM t_course where c_name = ? and c_credits = ?";
 if (!($stmt -> prepare($query))) {
 	echo "Prepare failed: " . $connect -> errno . $connect -> error;
 }
-if (!($stmt -> bind_param("s", $_POST["course_name"]))) {
+if (!($stmt -> bind_param("ss", $_POST["course_name"],$_POST["cp"]))) {
 	echo "Bind failed: " . $connect -> errno . $connect -> error;
 }
 if (!$stmt -> execute()) {

@@ -35,7 +35,7 @@ if (isset($_SESSION['Login'])) {
 		if ($_SESSION['Login'] == 1) {
 			require_once ('getConnection.php');
 			$stmt = $connect -> stmt_init();
-			$query = "SELECT p_id, p_title, p_forname, p_lastname FROM t_prof ";
+			$query = "SELECT p_id, p_title, p_forname, p_lastname FROM t_prof order by p_title, p_forname, p_lastname";
 			if (!($stmt -> prepare($query))) {
 				echo "Prepare failed: " . $connect -> errno . $connect -> error;
 			}
@@ -73,7 +73,7 @@ if (isset($_SESSION['Login'])) {
 			echo "\n";
 			echo "<h2>Credit Points</h2>";
 			echo "\n";
-			echo '<input required name="cp" type="number" size="30" maxlength="2">';
+			echo '<input required name="cp" type="number" size="30" min="1" max="30">';
 			echo "\n";
 			echo '<input type="image" name="add_course" src="../images/buttons/button_submit.jpg" alt="submit" id="button" width="250" height="150">';
 			echo "\n";

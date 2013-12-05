@@ -88,7 +88,7 @@ if (isset($_SESSION['Login'])) {
 				echo "\n";
 				echo "<h2>Count TANs:</h2>";
 				echo "\n";
-				echo '<input required name="count_tan" type="number" size="2" maxlength="2">';
+				echo '<input required name="count_tan" type="number" size="2" min="1" max="30">';
 				echo "\n";
 				echo "<br>";
 				echo "\n";
