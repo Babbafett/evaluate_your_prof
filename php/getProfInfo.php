@@ -188,8 +188,10 @@ if (isset($_GET["prof"])) {
 		echo '<ul class="course">';
 		echo "\n";
 		foreach ($course as $p) {
+			$count_course++;
 			echo "<li><a href='rate.html?course=" . $p["course_id"] . "&prof=" . $p["prof_id"] . "&university=" . $p["u_id"] . "'>" . $p['u_name'].' '.$p['c_name'].' '.$p['c_credits']. ' CP' . "</a></li>";
 		}
+		$count_course = 1560 + ($count_course * 40);
 		echo "\n";
 		echo '</ul>';
 		echo "\n";
@@ -291,6 +293,21 @@ if (isset($_GET["prof"])) {
 		echo '<li><p>' . $prof_list . "</p></li>";
 		echo "\n";
 		echo "</ul>";
+		
+		echo '<script type="text/javascript">';
+		echo "\n";
+		echo 'if ($( ".wrapper-main" ).height() <= ' . $count_course . ') {';
+		echo "\n";
+		echo '$( ".wrapper-main" ).height("' . $count_course . 'px");';
+		echo "\n";
+		echo "}";
+		echo "else{";
+		echo "\n";
+		echo '$( ".wrapper-main" ).height("1600px");';
+		echo "\n";
+		echo "}";
+		echo "\n";
+		echo '</script>';
 	}
 }
 

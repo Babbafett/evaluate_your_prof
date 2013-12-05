@@ -2,7 +2,7 @@
 if (isset($_GET['view'])) {
 	require_once ('getConnection.php');
 	$stmt = $connect -> stmt_init();
-	$query = "SELECT p_id, p_lastname, p_forname, p_title FROM t_prof";
+	$query = "SELECT p_id, p_lastname, p_forname, p_title FROM t_prof order by p_title, p_forname, p_lastname";
 	if (!($stmt -> prepare($query))) {
 		echo "Prepare failed: " . $connect -> errno . $connect -> error;
 	}
