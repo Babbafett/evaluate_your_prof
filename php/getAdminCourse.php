@@ -53,7 +53,7 @@ if (isset($_SESSION['Login'])) {
 			echo "\n";
 			echo '<form name="add_prof" action="admin_course.html" method="POST">';
 			echo "\n";
-			echo "<h2>title</h2>";
+			echo "<h2>prof</h2>";
 			echo "\n";
 			echo '<select name="prof" size="1" style="width: 215px">';
 			echo "\n";

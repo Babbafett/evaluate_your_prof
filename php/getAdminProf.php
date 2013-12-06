@@ -59,7 +59,7 @@ if (isset($_SESSION['Login'])) {
 			echo "\n";
 			echo "</select>";
 			echo "\n";
-			echo "<h2>forname</h2>";
+			echo "<h2>forename</h2>";
 			echo "\n";
 			echo '<input required name="forname" type="text" size="30" maxlength="30">';
 			echo "\n";
